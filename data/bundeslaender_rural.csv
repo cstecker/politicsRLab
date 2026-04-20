@@ -1,0 +1,17 @@
+bundesland,bundesland_short,population_2023,area_km2,density_per_km2,rural_share_pct,east_west
+Baden-Württemberg,BW,11280257,35748,316,29.8,West
+Bayern,BY,13369393,70542,190,45.2,West
+Berlin,BE,3755251,891,4215,0.0,Ost
+Brandenburg,BB,2573135,29654,87,65.4,Ost
+Bremen,HB,684864,419,1635,0.0,West
+Hamburg,HH,1892122,755,2505,0.0,West
+Hessen,HE,6391360,21116,303,30.1,West
+Mecklenburg-Vorpommern,MV,1628378,23295,70,79.8,Ost
+Niedersachsen,NI,8140242,47710,171,50.3,West
+Nordrhein-Westfalen,NW,18139116,34112,532,15.4,West
+Rheinland-Pfalz,RP,4159150,19858,209,50.1,West
+Saarland,SL,992666,2571,386,20.7,West
+Sachsen,SN,4086152,18450,221,29.6,Ost
+Sachsen-Anhalt,ST,2186643,20459,107,64.8,Ost
+Schleswig-Holstein,SH,2953270,15804,187,54.6,West
+Thüringen,TH,2126846,16202,131,60.2,Ost
