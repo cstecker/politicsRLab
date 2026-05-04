@@ -1,0 +1,9 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.ipynb_checkpoints/
+.quarto/
+__pycache__/
+Thumbs.db
+.DS_Store
