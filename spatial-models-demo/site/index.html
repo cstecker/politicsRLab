@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Räumliche Modelle des Entscheidens</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <p class="eyebrow">Lehrdashboard</p>
+      <h1>Interaktive Anwendung zu eindimensionalen räumlichen Modellen</h1>
+      <p class="lead">
+        Die Anwendung visualisiert Präferenzmengen, Gewinnmengen und den Medianfall
+        im eindimensionalen Politikraum. Idealpunkte und Status quo lassen sich direkt
+        im Diagramm horizontal verschieben.
+      </p>
+    </header>
+
+    <main class="layout">
+      <aside class="control-panel">
+        <section class="panel-card">
+          <h2>Steuerung</h2>
+          <p class="panel-note">
+            Alle Punkte lassen sich im Diagramm ziehen. Die Felder unten sind für
+            exakte Werte gedacht.
+          </p>
+
+          <label class="checkbox-row">
+            <input id="show-winset" type="checkbox" checked>
+            <span>Gewinnmenge W(y) anzeigen</span>
+          </label>
+
+          <label class="field">
+            <span>Entscheidungsregel</span>
+            <select id="decision-rule">
+              <option value="3">Absolute Mehrheit (3/5)</option>
+              <option value="4">Supermajorität (4/5)</option>
+              <option value="5">Einstimmigkeit (5/5)</option>
+            </select>
+          </label>
+
+          <div class="separator"></div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Status quo y</span>
+              <input id="control-sq" type="number" min="0" max="100" step="1" value="65">
+            </label>
+            <label class="field">
+              <span>Idealpunkt A1</span>
+              <input id="control-a1" type="number" min="0" max="100" step="1" value="15">
+            </label>
+            <label class="field">
+              <span>Idealpunkt A2</span>
+              <input id="control-a2" type="number" min="0" max="100" step="1" value="35">
+            </label>
+            <label class="field">
+              <span>Idealpunkt A3</span>
+              <input id="control-a3" type="number" min="0" max="100" step="1" value="50">
+            </label>
+            <label class="field">
+              <span>Idealpunkt A4</span>
+              <input id="control-a4" type="number" min="0" max="100" step="1" value="70">
+            </label>
+            <label class="field">
+              <span>Idealpunkt A5</span>
+              <input id="control-a5" type="number" min="0" max="100" step="1" value="85">
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button id="preset-default" type="button">Standardfall</button>
+            <button id="preset-median" type="button">SQ auf Median</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="main-panel">
+        <section class="panel-card svg-card">
+          <div id="svg-host" class="svg-host"></div>
+        </section>
+
+        <section class="panel-card chart-card">
+          <canvas id="distance-chart" aria-label="Summe der absoluten Abweichungen vom Status quo"></canvas>
+        </section>
+
+        <section class="panel-card explanation-card">
+          <p class="hint">
+            <strong>Didaktischer Hinweis:</strong> Erst nur y verschieben, dann einzelne
+            Idealpunkte. So wird direkt sichtbar, wie sich die Präferenzmengen überlappen
+            und unter welchen Regeln W(y) leer wird.
+          </p>
+          <p id="explanation-text" class="explanation-text"></p>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
