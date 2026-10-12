@@ -1,0 +1,11 @@
+{
+  "snapshot_date": "2026-10-11",
+  "schema_version": 1,
+  "n": 106,
+  "min_category_n": 5,
+  "variables": ["geschlecht", "vote", "lire_self", "econ_self", "immi_self", "klim_self", "euin_self"],
+  "n_lire_valid": 106,
+  "n_lire_missing": 0,
+  "data_sha256": "3d1899934de18d960c19d8d2f2bb16f1bd7d1cd1b68c4207f838a18a8a1df7b8",
+  "protection": ["Explizite Auswahl von sieben Variablen", "Keine IDs, Codes, Zeitstempel oder Geburtsorte", "Keine Freitexte, auch keine daraus rekodierten Angaben", "Seltene Kategorien: Schwelle 5", "Gemischte Zeilen ohne ursprüngliche Zeilennamen"]
+}

@@ -1,0 +1,8 @@
+variable,beschreibung,werte,typ,fehlend
+geschlecht,Geschlecht (seltene Angaben unterdrückt),Weiblich; Männlich; NA,character,"NA: übersprungen, Divers/keine Angabe oder unterdrückte seltene Kategorie"
+vote,Wahlabsicht (seltene Angaben zusammengefasst),Parteiname; Nichtwahl; Andere / selten genannt; NA,character,NA: übersprungen oder unterdrückte Restgruppe unter 5 Fällen
+lire_self,Links-Rechts-Selbsteinstufung,1 = links; 11 = rechts,integer,NA: übersprungen
+econ_self,Sozialstaat,1 = mehr Sozialstaat; 11 = weniger Sozialstaat,integer,NA: übersprungen
+immi_self,Zuzug allgemein,1 = Zuzug erleichtern; 11 = Zuzug einschränken,integer,NA: übersprungen
+klim_self,Klimaschutz und Wirtschaftswachstum,1 = Vorrang Klimaschutz; 11 = Vorrang Wirtschaftswachstum,integer,NA: übersprungen
+euin_self,EU-Kompetenzen,1 = mehr EU-Kompetenzen; 11 = weniger EU-Kompetenzen,integer,NA: übersprungen
