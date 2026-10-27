@@ -28,13 +28,13 @@ Dann im Browser öffnen:
 
 ## GitHub Pages
 
-Für GitHub Pages liegt ein Workflow unter `.github/workflows/deploy-spatial-models-demo.yml`.
+**[Räumliche Modelle öffnen](https://cstecker.github.io/politicsRLab/spatial-models/)** · **[MethodLab-Startseite](https://cstecker.github.io/politicsRLab/)**
 
-Er deployt den Inhalt von:
+Der gemeinsame Workflow `.github/workflows/deploy-spatial-models-demo.yml` heißt jetzt „Deploy MethodLab“. Er baut die Startseite und beide statischen Anwendungen mit:
 
-`spatial-models-demo/site`
+`python tools/build_teaching_hub.py --public`
 
-nach GitHub Pages, sobald Änderungen auf `main` gepusht werden.
+Das Pages-Artefakt liegt unter `outputs/teaching-hub-public/`. Die räumlichen Modelle erhalten darin den Unterpfad `spatial-models/`. Änderungen der statischen Quellen auf `main` lösen das gemeinsame Deployment aus.
 
 Falls GitHub Pages im Repository noch nicht aktiviert ist:
 
@@ -43,3 +43,7 @@ Falls GitHub Pages im Repository noch nicht aktiviert ist:
 3. als Source `GitHub Actions` auswählen
 
 Danach reicht ein Push auf `main`, damit die statische Seite veröffentlicht wird.
+
+## Gemeinsame Gestaltung
+
+Die statische Anwendung übernimmt die institutionelle Kopfzeile, TU-Blau und Arial aus ../brand/. Nach Änderungen an der gemeinsamen Gestaltung im Projektstamm python tools/sync_brand.py und --check ausführen. Die kopierten Assets unter site/brand/ gehören zum statischen Paket. Akteursfarben, Skalen und Berechnungen bleiben eigenständig.

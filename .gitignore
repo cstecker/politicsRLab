@@ -7,3 +7,11 @@
 __pycache__/
 Thumbs.db
 .DS_Store
+rsconnect/
+
+# Lokale Laufzeit und eigenständiges privates Sites-Repository
+/node_modules/
+/apps/parteienlabor/
+/apps/wahlsystemlabor/
+/docs/private/
+/outputs/

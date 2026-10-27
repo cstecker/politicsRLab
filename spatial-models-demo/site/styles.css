@@ -1,11 +1,11 @@
 :root {
-  --bg: #f3efe4;
-  --panel: #fbfaf6;
-  --line: #d6d0c5;
-  --text: #1f1f1f;
-  --muted: #5e5e57;
-  --accent: #c1121f;
-  --shadow: 0 20px 45px rgba(35, 34, 28, 0.08);
+  --bg: var(--prl-background);
+  --panel: var(--prl-surface);
+  --line: var(--prl-line);
+  --text: var(--prl-ink);
+  --muted: var(--prl-muted);
+  --accent: var(--prl-blue);
+  --shadow: 0 20px 45px rgba(31, 41, 51, 0.06);
   --a1: #33658a;
   --a2: #86bbd8;
   --a3: #758e4f;
@@ -19,11 +19,9 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--prl-font);
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.4) 35%, transparent 55%),
-    linear-gradient(180deg, #f5efe0 0%, var(--bg) 100%);
+  background: var(--bg);
 }
 
 .page-shell {
@@ -41,7 +39,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.78rem;
-  color: #a05a2c;
+  color: var(--prl-blue);
   font-weight: 700;
 }
 
@@ -49,7 +47,7 @@ body {
   margin: 0;
   font-size: clamp(2rem, 3vw, 3.4rem);
   line-height: 1.02;
-  max-width: 14ch;
+  max-width: 28ch;
 }
 
 .lead {
@@ -75,7 +73,7 @@ body {
 
 .panel-card {
   background: var(--panel);
-  border: 1px solid rgba(126, 116, 92, 0.18);
+  border: 1px solid var(--prl-line);
   border-radius: 22px;
   box-shadow: var(--shadow);
   padding: 20px 20px 22px;
@@ -131,7 +129,7 @@ body {
 .field input,
 .field select {
   width: 100%;
-  border: 1px solid rgba(117, 105, 82, 0.28);
+  border: 1px solid var(--prl-line);
   border-radius: 12px;
   padding: 10px 12px;
   background: white;
@@ -140,7 +138,7 @@ body {
 
 .separator {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(117, 105, 82, 0.28), transparent);
+  background: linear-gradient(90deg, transparent, var(--prl-line), transparent);
   margin: 18px 0 16px;
 }
 
@@ -158,11 +156,11 @@ body {
   cursor: pointer;
   font-weight: 700;
   color: white;
-  background: linear-gradient(135deg, #6a8b4f, #4f6e38);
+  background: var(--prl-blue);
 }
 
 .button-row button:last-child {
-  background: linear-gradient(135deg, #895b27, #a05a2c);
+  background: var(--prl-blue-dark);
 }
 
 .svg-card {

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MethodLab: interaktive Anwendungen und R-Übungen zur deutschen und vergleichenden Politikwissenschaft von Prof. Dr. Christian Stecker.">
+  <title>MethodLab · Politikwissenschaft zum Ausprobieren</title>
+  <link rel="stylesheet" href="./brand/brand.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./hub.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#angebote">Zu den Anwendungen</a>
+  <!-- politicsRLab:identity:start -->
+<header class="prl-institution" aria-label="Hochschule und Arbeitsbereich">
+  <div class="prl-institution__inner">
+    <a class="prl-institution__logo" href="https://www.tu-darmstadt.de/" aria-label="Technische Universität Darmstadt">
+      <img src="./brand/tu-darmstadt.svg" width="250" height="157" alt="Technische Universität Darmstadt" />
+    </a>
+    <div class="prl-institution__text">
+      <a class="prl-institution__department" href="https://www.politikwissenschaft.tu-darmstadt.de/institut/arbeitsbereiche_und_nachwuchsgruppen/de_vergleich/index.de.jsp">Politisches System Deutschlands und Vergleich politischer Systeme</a>
+      <p class="prl-institution__person">Prof. Dr. Christian Stecker</p>
+    </div>
+  </div>
+</header>
+<!-- politicsRLab:identity:end -->
+  <div class="shell">
+    <nav class="site-nav" aria-label="Hauptnavigation"><a class="wordmark" href="./">Method<span>Lab</span><small>mit politicsRLab</small></a><div><a href="#angebote">Anwendungen</a><a href="#lehre">Für Lehrende</a><a href="#ueber">Über das Lab</a></div></nav>
+    <main>
+      <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Politikwissenschaft zum Ausprobieren</p><h1 id="hero-title">Institutionen verstehen.<br>Entscheidungen untersuchen.</h1><p class="lead">Wahlsysteme vergleichen, Parteien verorten und mit Daten arbeiten. Interaktive Anwendungen und R-Übungen für Vorlesung, Seminar und Selbststudium.</p><a class="button" href="#angebote">Passende Anwendung finden <span aria-hidden="true">↓</span></a></div>
+      <!-- draft-feature:start --><aside class="feature"><div class="feature-top"><span>NEUER ENTWURF</span><span>01 / Wahlsystemlabor</span></div><h2>Welche Regeln wünschen wir uns für Wahlen?</h2><div class="profile-sketch" aria-label="Im Wahlsystemlabor werden zwei Profile mit mehreren Eigenschaften verglichen"><div><span>Wahlsystem A</span><strong>Klare Mehrheiten</strong><p>eher wahrscheinlich</p></div><div><span>Wahlsystem B</span><strong>Klare Mehrheiten</strong><p>sehr unwahrscheinlich</p></div></div><p>Fünf Entscheidungen treffen und anschließend verstehen, wie ein Conjoint-Experiment einzelne Wirkungen sichtbar macht.</p><a class="button secondary" href="./wahlsystemlabor/">Entwurf ausprobieren →</a><p class="feature-note">Lokale Testteilnahme und simulierte Auswertung.</p></aside><!-- draft-feature:end --></section>
+      <section id="angebote" class="catalog" aria-labelledby="catalog-title"><div class="section-heading"><div><p class="eyebrow">Werkzeuge für Lehre & Selbststudium</p><h2 id="catalog-title">Was möchten Sie untersuchen?</h2></div><p class="muted">Nach Thema suchen oder nach Format auswählen.</p></div><div class="filter-bar"><div class="filter-group" role="group" aria-label="Format auswählen"><button class="filter active" data-filter="all" aria-pressed="true">Alle Angebote</button><button class="filter" data-filter="app" aria-pressed="false">Interaktive Apps</button><button class="filter" data-filter="colab" aria-pressed="false">Colab & R</button></div><label class="search-label" for="search">Thema oder Methode<input type="search" id="search" placeholder="z. B. Wahlen, Conjoint, R …"></label></div><p class="count" id="count" aria-live="polite"></p><div class="cards">
+      <!-- catalog:start -->
+      <!-- catalog:end -->
+      </div><p id="empty" hidden>Kein Angebot gefunden. Versuchen Sie einen anderen Suchbegriff oder wählen Sie „Alle Angebote“.</p></section>
+      <section id="lehre" class="teaching" aria-labelledby="teaching-title"><div><p class="eyebrow">Im Hörsaal und Seminar</p><h2 id="teaching-title">Ausprobieren.<br>Vorhersagen.<br>Gemeinsam erklären.</h2><p>Eine kurze Anwendung kann eine abstrakte Frage greifbar machen. Entscheidend ist die anschließende Erklärung: Was hat sich verändert, wodurch und mit welcher Aussagegrenze?</p></div><ol><li><span>01</span><div><h3>Passendes Format wählen</h3><p>Browser-Apps eignen sich zum unmittelbaren Erkunden. Colabs verbinden die fachliche Frage mit nachvollziehbarem R-Code.</p></div></li><li><span>02</span><div><h3>Vorher selbst ausprobieren</h3><p>Beim Parteienlabor ist die gemeinsame Teilnahme an eine Kursrunde gebunden. Die Demo funktioniert unabhängig davon. Das Wahlsystemlabor liegt als Testentwurf vor.</p></div></li><li><span>03</span><div><h3>Beobachtungen zurückbinden</h3><p>Erwartungen mit dem Ergebnis vergleichen und den Mechanismus erklären. Simulierte Daten sind ausdrücklich als solche gekennzeichnet.</p></div></li></ol></section>
+      <section id="ueber" class="about"><div><p class="eyebrow">Ein gemeinsamer Einstieg</p><h2>MethodLab als Dach.<br>politicsRLab als Werkstatt.</h2></div><div><p>Hier finden Sie die Anwendungen und Übungen des Arbeitsbereichs Politisches System Deutschlands und Vergleich politischer Systeme. Die Materialien entstehen für die deutsche und vergleichende Politikwissenschaft.</p><p>R-Notebooks: Christian Stecker und Leon Siefken. Projekt und Quellmaterialien: <a href="https://github.com/cstecker/politicsRLab">politicsRLab auf GitHub ↗</a>.</p><p class="muted">Startseitenentwurf vom 27.10.2026. Bestehende Notebooks sind verlinkt; ihre Inhalte wurden für diesen Entwurf nicht erneut fachlich geprüft.</p></div></section>
+    </main>
+    <footer><span>MethodLab · Prof. Dr. Christian Stecker</span><a href="https://www.tu-darmstadt.de/impressum/">Impressum der TU Darmstadt ↗</a><a href="https://www.tu-darmstadt.de/datenschutzerklaerung/">Datenschutz der TU Darmstadt ↗</a><span>Externe Angebote haben eigene Zugangsvoraussetzungen.</span></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+[
+  {
+    "id": "wahlsystemlabor", "title": "Welches Wahlsystem würden Sie wählen?",
+    "kind": "app", "format": "Interaktive App", "status": "Entwurf", "topic": "Wahlsysteme · Conjoint",
+    "description": "Fünf Paarvergleiche ausprobieren, die Logik von Conjoints entdecken und simulierte Effekte untersuchen.",
+    "use": "Einzeln & Projektion", "href": "./wahlsystemlabor/", "action": "Entwurf ausprobieren", "featured": true
+  },
+  {
+    "id": "parteienlabor", "title": "Wo stehen die Parteien?",
+    "kind": "app", "format": "Interaktive App", "status": "Online", "topic": "Parteien · Positionen",
+    "description": "Parteipositionen einschätzen und die gemeinsame Verteilung mit wissenschaftlichen Expertenurteilen vergleichen.",
+    "use": "Live im Kurs & Demo", "href": "https://parteienlabor-brd.plugchris.chatgpt.site/", "action": "Am Parteienlabor teilnehmen",
+    "secondary_href": "https://parteienlabor-brd.plugchris.chatgpt.site/demo", "secondary_action": "Demo ansehen"
+  },
+  {
+    "id": "spatial", "title": "Wer setzt sich bei Mehrheitsentscheidungen durch?",
+    "kind": "app", "format": "Interaktive App", "status": "Web-App", "topic": "Räumliche Modelle · Mehrheiten",
+    "description": "Idealpunkte und Status quo verschieben. Untersuchen, wie Entscheidungsregeln die Gewinnmenge verändern.",
+    "use": "Einzeln & Projektion", "href": "./spatial-models/", "action": "Räumliche Modelle öffnen"
+  },
+  {
+    "id": "kursumfrage", "title": "In welcher Blase bin ich denn hier gelandet?",
+    "kind": "colab", "format": "Colab & R", "status": "Kursumfrage 2026/27", "topic": "Kursumfrage · R-Einstieg",
+    "description": "Mit aufbereiteten Kursumfragedaten Häufigkeiten, Mittelwerte, Diagramme und erste Hypothesentests erarbeiten.",
+    "use": "Selbststudium & Übung", "href": "https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/In%20welcher%20Blase%20bin%20ich%20denn%20hier%20gelandet%20-%202026-10.ipynb", "action": "Colab öffnen"
+  },
+  {
+    "id": "umfragen", "title": "Have confidence(intervals) in Wahlumfragen",
+    "kind": "colab", "format": "Colab & R", "status": "Bestand", "topic": "Wahlumfragen · Unsicherheit",
+    "description": "Mit dem vorhandenen Notebook Unsicherheit und Konfidenzintervalle bei Wahlumfragen untersuchen.",
+    "use": "Selbststudium & Übung", "href": "https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/Have%20confidence%28intervals%29%20in%20Wahlumfragen.ipynb", "action": "Colab öffnen"
+  },
+  {
+    "id": "direktdemokratie", "title": "Bürgerbegehren mit Daten untersuchen",
+    "kind": "colab", "format": "Colab & R", "status": "Bestand", "topic": "Direktdemokratie · Datenanalyse",
+    "description": "Der vorhandene Datensatz zu Bürgerbegehren als Ausgangspunkt für eigene empirische Fragen.",
+    "use": "Selbststudium & Übung", "href": "https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/Datensatz%20zu%20B%C3%BCrgerbegehren.ipynb", "action": "Colab öffnen"
+  },
+  {
+    "id": "wahlomat", "title": "Wie die Thesenauswahl den Wahl-O-Mat beeinflusst",
+    "kind": "colab", "format": "Colab & R", "status": "Bestand", "topic": "Wahl-O-Mat · Messung",
+    "description": "Mit dem bestehenden Notebook erkunden, welche Rolle die Auswahl von Fragen für politische Positionsmessung spielt.",
+    "use": "Selbststudium & Übung", "href": "https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/Wie_die_Thesenauswahl_den_Wahl_O_Mat_beeinflusst.ipynb", "action": "Colab öffnen"
+  }
+]

@@ -1,10 +1,15 @@
-name: Deploy Spatial Models Demo
+name: Deploy MethodLab
 
 on:
   push:
     branches:
       - main
     paths:
+      - "hub/**"
+      - "wahlsystemlabor/**"
+      - "brand/**"
+      - "tools/sync_brand.py"
+      - "tools/build_teaching_hub.py"
       - "spatial-models-demo/site/**"
       - ".github/workflows/deploy-spatial-models-demo.yml"
   workflow_dispatch:
@@ -28,13 +33,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check shared branding
+        run: python tools/sync_brand.py --check
+
+      - name: Test conjoint design and statistics
+        working-directory: wahlsystemlabor
+        run: node --test tests/*.test.mjs
+
+      - name: Build MethodLab and static apps
+        run: python tools/build_teaching_hub.py --public
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: spatial-models-demo/site
+          path: outputs/teaching-hub-public
 
       - name: Deploy to GitHub Pages
         id: deployment
