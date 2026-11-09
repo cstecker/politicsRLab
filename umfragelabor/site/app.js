@@ -5,7 +5,7 @@
   const fmt=(x,d=1)=>x.toLocaleString('de-DE',{minimumFractionDigits:d,maximumFractionDigits:d});
   const pct=x=>fmt(x*100)+' %', pp=x=>fmt(x*100)+' PP';
   const LESSONS=['Grundgesamtheit','Eine Stichprobe','Viele Stichproben','Konfidenzintervalle','Wer liegt vorn'];
-  const state={step:0,n:200,reps:100,focus:0,confidence:95,gap:10,seed:123,singleRun:0,batchRun:0,compare:1,all:false,zoom:false,answers:{}};
+  const state={step:0,n:200,reps:100,focus:0,confidence:95,gap:S.POLL.defaultGap,seed:123,singleRun:0,batchRun:0,compare:1,all:false,zoom:false,answers:{}};
   let probs, single, batches;
   function calculate() {
     probs=S.population(state.gap);
@@ -23,7 +23,7 @@
     return {x,out};
   }
   function barChart(withSample=false) {
-    const w=size(), h=330, left=68,right=48,top=12,bottom=36;
+    const w=size(), h=330, left=96,right=48,top=12,bottom=36;
     const a=axesX(w,h,left,right,top,bottom);
     let out=a.out;
     probs.forEach((p,i)=>{
@@ -39,7 +39,7 @@
         out+=text(a.x(p)+7,y+4,fmt(p*100),'strong');
       }
     });
-    return svg(out,w,h,withSample?'Parteianteile der aktuellen Stichprobe im Vergleich mit der Grundgesamtheit; Werte in der Datentabelle.':'Fiktive Parteianteile in der Grundgesamtheit; Werte in der Datentabelle.');
+    return svg(out,w,h,withSample?'Parteianteile der aktuellen Stichprobe im Vergleich mit der Grundgesamtheit; Werte in der Datentabelle.':'Modellierte Parteianteile auf Basis der FGW-Projektion vom 23.10.2026; Werte in der Datentabelle.');
   }
   function focusDomain(focus,withIntervals=false) {
     if(!state.zoom)return [0,1];
@@ -84,7 +84,7 @@
     return svg(out,w,h,'Die ersten '+shown.length+' Konfidenzintervalle für '+S.PARTIES[state.focus].name+'. Gestrichelte orange Intervalle verfehlen den wahren Anteil. Jede Zeile ist eine andere Umfrage.');
   }
   function partyIntervalsChart() {
-    const w=size(),h=155,left=68,right=23,top=10,bottom=38;
+    const w=size(),h=155,left=96,right=23,top=10,bottom=38;
     const axes=axesX(w,h,left,right,top,bottom);
     let out=axes.out;
     [state.focus,state.compare].forEach((party,i)=>{
@@ -116,7 +116,7 @@
     return '<details class="data"><summary>Werte als Tabelle &amp; CSV</summary><div class="data-actions"><button data-action="csv">Simulationsdaten herunterladen ↓</button><span>Alle sieben Parteien, auch bei null Nennungen</span></div><div class="table-wrap"><table><thead><tr>'+headers.map(x=>'<th scope="col">'+x+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map((x,i)=>(i===0?'<th scope="row">':'<td>')+x+(i===0?'</th>':'</td>')).join('')+'</tr>').join('')+'</tbody></table></div></details>';
   }
   const quizzes=[
-    {q:'Warum kennen wir hier den wahren Anteil?',options:['Weil eine große Umfrage immer recht hat.','Weil wir die Wählerschaft selbst festgelegt haben.'],correct:1,feedback:'Im Experiment kennen wir die Grundgesamtheit. Bei einer echten Umfrage bleibt der gesuchte Anteil unbekannt.'},
+    {q:'Warum kennen wir hier den wahren Anteil?',options:['Weil eine große Umfrage immer recht hat.','Weil wir die Wählerschaft selbst festgelegt haben.'],correct:1,feedback:'Im Modell legen wir die Grundgesamtheit anhand einer realen Umfrage fest. Diese Umfrage selbst ist eine unsichere Schätzung; die tatsächlichen Anteile in Deutschland bleiben unbekannt.'},
     {q:'Zwei Zufallsstichproben liefern verschiedene Werte. Ist das schon ein Fehler der Durchführung?',options:['Ja, eine Umfrage muss falsch durchgeführt sein.','Nein, das kann allein durch Zufall entstehen.'],correct:1,feedback:'Auch korrekt gezogene Zufallsstichproben schwanken. Die Grundgesamtheit muss sich dafür nicht ändern.'},
     {q:'Was halbiert den Standardfehler ungefähr?',options:['Doppelt so viele Befragte je Umfrage.','Viermal so viele Befragte je Umfrage.','Viermal so viele simulierte Umfragen.'],correct:1,feedback:'Der Standardfehler sinkt mit 1/√n. Viermal so viele Befragte halbieren ihn; mehr Wiederholungen zeigen das Muster nur genauer.'},
     {q:'Wofür stehen 95 % beim Konfidenzintervall?',options:['Für den langfristigen Anteil der Intervalle, die den wahren Wert abdecken.','Für die Wahrscheinlichkeit, dass der feste wahre Wert in genau diesem fertigen Intervall liegt.'],correct:0,feedback:'Bei wiederholten Zufallsstichproben deckt dieses Verfahren den festen Populationswert ungefähr in 95 % der Fälle ab. Das einzelne Intervall trifft ihn oder verfehlt ihn.'},
@@ -124,14 +124,15 @@
   ];
   function quiz(){const q=quizzes[state.step],answer=state.answers[state.step]; return '<div class="quiz"><p>Gedankencheck: '+q.q+'</p><div class="quiz-options">'+q.options.map((o,i)=>'<button data-answer="'+i+'" aria-pressed="'+(answer===i)+'">'+o+'</button>').join('')+'</div>'+(answer===undefined?'':'<p class="feedback" role="status">'+(answer===q.correct?'Richtig. ':'Noch einmal nachdenken. ')+q.feedback+'</p>')+'</div>';}
   function render(focusHeading=false) {
+    $('source-status').textContent=state.gap===S.POLL.defaultGap?'Die Projektion wird als bekannte Grundgesamtheit im Modell verwendet; sie ist keine bekannte Wahrheit über Deutschland.':'Verändertes Lehrszenario: Der CDU/CSU-SPD-Abstand weicht von der FGW-Projektion ab.';
     $('n-out').value=fmt(state.n,0); $('gap-out').value=fmt(state.gap,0)+' Prozentpunkte';
     document.querySelectorAll('[data-step]').forEach(b=>{if(+b.dataset.step===state.step)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
     document.querySelectorAll('[data-n]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.n===state.n));
     const party=S.PARTIES[state.focus],values=batches.map(c=>c[state.focus]/state.n),sum=S.summary(values);
     let body='',title=LESSONS[state.step],intro='';
     if(state.step===0){
-      intro='Um eine Suppe zu beurteilen, genügt eine gut durchmischte Kostprobe. Für Wahlumfragen ist die Wählerschaft der Topf und die Stichprobe der Löffel. Hier kennen wir ausnahmsweise den ganzen Topf.';
-      body='<div class="chart-title"><h3>So wählt unsere fiktive Wählerschaft</h3><span>Stimmenanteil in Prozent</span></div>'+barChart()+metrics([['10.000','Personen zur Veranschaulichung'],['7','Parteien / Kategorien'],['100 %','aller Wahlabsichten']])+insight('Die Balken zeigen die <strong>Grundgesamtheit</strong>. Diese Anteile bleiben bei neuen Ziehungen fest. Nur unter „Wählerschaft & Zufall verändern“ legen Sie eine andere Wählerschaft fest.')+task('Öffnen Sie die Szenario-Einstellungen und wählen Sie „Knappes Rennen“. Wie unterscheiden sich die wahren Anteile von CDU und SPD?')+dataTable();
+      intro='Um eine Suppe zu beurteilen, genügt eine gut durchmischte Kostprobe. Für Wahlumfragen ist die Wählerschaft der Topf und die Stichprobe der Löffel. Für die Simulation setzen wir die FGW-Projektion vom 23.10.2026 als bekannte Modellanteile fest. Die tatsächlichen Wahlabsichten in Deutschland bleiben unbekannt.';
+      body='<div class="chart-title"><h3>So wählt unsere modellierte Wählerschaft</h3><span>Stimmenanteil in Prozent</span></div>'+barChart()+metrics([['10.000','Personen zur Veranschaulichung'],['7','Parteien / Kategorien'],['100 %','aller Wahlabsichten']])+insight('Die Balken zeigen die <strong>Grundgesamtheit</strong>. Diese Anteile bleiben bei neuen Ziehungen fest. Nur unter „Wählerschaft & Zufall verändern“ legen Sie eine andere Wählerschaft fest.')+task('Öffnen Sie die Szenario-Einstellungen und wählen Sie „Knappes Rennen“. Wie unterscheiden sich die wahren Anteile von CDU/CSU und SPD?')+dataTable();
     }else if(state.step===1){
       intro='Wir ziehen '+fmt(state.n,0)+' Mal zufällig eine Person. Alle haben dieselbe Auswahlchance. Die farbigen Balken zeigen, welche Wahlabsichten in dieser Stichprobe landen.';
       const maxError=Math.max(...single.map((v,i)=>Math.abs(v/state.n-probs[i]))),p=single[state.focus]/state.n;
@@ -150,7 +151,7 @@
       if(state.compare===state.focus)state.compare=(state.focus+1)%7;
       const other=S.PARTIES[state.compare],d=S.difference(single[state.focus],single[state.compare],state.n,state.confidence), excludes=d.lower>0||d.upper<0;
       const intervalA=S.wilson(single[state.focus],state.n,state.confidence),intervalB=S.wilson(single[state.compare],state.n,state.confidence),overlap=Math.max(intervalA[0],intervalB[0])<=Math.min(intervalA[1],intervalB[1]);
-      body='<div class="comparison-controls"><label for="compare">'+party.name+' vergleichen mit</label><select id="compare">'+S.PARTIES.map((p,i)=>i===state.focus?'':'<option value="'+i+'" '+(i===state.compare?'selected':'')+'>'+p.name+'</option>').join('')+'</select><button data-action="close">Knappes Rennen: CDU / SPD</button></div>'+singleAction()+'<div class="chart-title"><h3>Die beiden Parteianteile</h3><span>Stimmenanteil in Prozent · einzelne Wilson-Intervalle</span></div>'+partyIntervalsChart()+'<div class="chart-title"><h3>'+party.name+' minus '+other.name+'</h3><span>Punkt = Schätzung · Balken = '+state.confidence+'%-Intervall</span></div>'+comparisonChart(d)+metrics([[pp(d.estimate),'geschätzter Abstand'],[pp(probs[state.focus]-probs[state.compare]),'wahrer Abstand'],[pp(d.lower)+' bis '+pp(d.upper),state.confidence+'%-Intervall des Abstands']])+(d.reliable?insight(excludes?'<strong>Null liegt außerhalb des Intervalls.</strong> Unter unserem Modell spricht diese Umfrage auf dem gewählten Niveau für einen Unterschied zugunsten von '+(d.estimate>0?party.name:other.name)+'. Auch dieses Verfahren kann sich irren.':'<strong>Null liegt im Intervall.</strong> Die Umfrage erlaubt unter unserem Modell keine klare Aussage darüber, welche der beiden Parteien tatsächlich vorne liegt. Das beweist keinen Gleichstand.'):'<p class="warning">Mindestens eine Zelle hat weniger als zehn Beobachtungen. Die Normalapproximation des Abstands ist hier unzuverlässig; daraus bitte keine belastbare Rangfolge ableiten.</p>')+'<p class="chart-note">Die einzelnen Wilson-Intervalle '+(overlap?'überlappen':'überlappen nicht')+': '+party.name+' '+pct(intervalA[0])+'–'+pct(intervalA[1])+', '+other.name+' '+pct(intervalB[0])+'–'+pct(intervalB[1])+'. Die Überlappung allein ersetzt keinen Test des Abstands.</p>'+task('Wählen Sie „Knappes Rennen“ und ziehen Sie mehrmals neu. Bei welchem n wechseln Rangfolge und Urteil besonders häufig?')+dataTable();
+      body='<div class="comparison-controls"><label for="compare">'+party.name+' vergleichen mit</label><select id="compare">'+S.PARTIES.map((p,i)=>i===state.focus?'':'<option value="'+i+'" '+(i===state.compare?'selected':'')+'>'+p.name+'</option>').join('')+'</select><button data-action="close">Knappes Rennen: CDU/CSU / SPD</button></div>'+singleAction()+'<div class="chart-title"><h3>Die beiden Parteianteile</h3><span>Stimmenanteil in Prozent · einzelne Wilson-Intervalle</span></div>'+partyIntervalsChart()+'<div class="chart-title"><h3>'+party.name+' minus '+other.name+'</h3><span>Punkt = Schätzung · Balken = '+state.confidence+'%-Intervall</span></div>'+comparisonChart(d)+metrics([[pp(d.estimate),'geschätzter Abstand'],[pp(probs[state.focus]-probs[state.compare]),'wahrer Abstand'],[pp(d.lower)+' bis '+pp(d.upper),state.confidence+'%-Intervall des Abstands']])+(d.reliable?insight(excludes?'<strong>Null liegt außerhalb des Intervalls.</strong> Unter unserem Modell spricht diese Umfrage auf dem gewählten Niveau für einen Unterschied zugunsten von '+(d.estimate>0?party.name:other.name)+'. Auch dieses Verfahren kann sich irren.':'<strong>Null liegt im Intervall.</strong> Die Umfrage erlaubt unter unserem Modell keine klare Aussage darüber, welche der beiden Parteien tatsächlich vorne liegt. Das beweist keinen Gleichstand.'):'<p class="warning">Mindestens eine Zelle hat weniger als zehn Beobachtungen. Die Normalapproximation des Abstands ist hier unzuverlässig; daraus bitte keine belastbare Rangfolge ableiten.</p>')+'<p class="chart-note">Die einzelnen Wilson-Intervalle '+(overlap?'überlappen':'überlappen nicht')+': '+party.name+' '+pct(intervalA[0])+'–'+pct(intervalA[1])+', '+other.name+' '+pct(intervalB[0])+'–'+pct(intervalB[1])+'. Die Überlappung allein ersetzt keinen Test des Abstands.</p>'+task('Wählen Sie „Knappes Rennen“ und ziehen Sie mehrmals neu. Bei welchem n wechseln Rangfolge und Urteil besonders häufig?')+dataTable();
     }
     $('lesson').innerHTML='<h2 id="lesson-title">'+title+'</h2><p class="lede">'+intro+'</p>'+body+quiz()+'<div class="lesson-nav">'+(state.step>0?'<button data-go="'+(state.step-1)+'">← Zurück</button>':'<span></span>')+(state.step<4?'<button class="primary" data-go="'+(state.step+1)+'">Weiter: '+LESSONS[state.step+1]+' →</button>':'<button data-go="0">Zur Grundgesamtheit ↻</button>')+'</div>';
     if(focusHeading)$('lesson').focus({preventScroll:true});
@@ -174,7 +175,7 @@
     if(b.dataset.n){updateControls();$('n').value=b.dataset.n;settingsChanged('n',+b.dataset.n);return;}
     if(b.dataset.gap!==undefined){$('gap').value=b.dataset.gap;settingsChanged('gap',+b.dataset.gap);return;}
     if(b.dataset.answer!==undefined){state.answers[state.step]=+b.dataset.answer;render();return;}
-    if(b.id==='reset'){Object.assign(state,{step:0,n:200,reps:100,focus:0,confidence:95,gap:10,seed:123,singleRun:0,batchRun:0,compare:1,all:false,answers:{}});updateControls();calculate();render();$('status').textContent='Simulation auf die Ausgangswerte zurückgesetzt.';return;}
+    if(b.id==='reset'){Object.assign(state,{step:0,n:200,reps:100,focus:0,confidence:95,gap:S.POLL.defaultGap,seed:123,singleRun:0,batchRun:0,compare:1,all:false,zoom:false,answers:{}});updateControls();calculate();render();$('status').textContent='Simulation auf die Ausgangswerte zurückgesetzt.';return;}
     const action=b.dataset.action;
     if(action==='csv'){download();return;}
     if(action==='single'){state.singleRun++;calculate();}

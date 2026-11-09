@@ -29,8 +29,9 @@
   <div class="intro">
     <div><p class="eyebrow">METHODLAB / UMFRAGELABOR</p><h1>Have confidence(intervals) in polls.</h1>
     <p class="lead">Eine Stichprobe ist eine Kostprobe. Erkunden Sie, wie viel sie über die ganze Wählerschaft verrät – und wie viel sie danebenliegen kann.</p></div>
-    <div class="intro-note"><span class="note-line"></span><strong>Gleiche Wählerschaft.<br>Andere Umfrage.</strong><p>Fünf Lektionen zu Stichproben und Unsicherheit.</p><span class="tag">Simulation · keine aktuellen Umfragedaten</span></div>
+    <div class="intro-note"><span class="note-line"></span><strong>Gleiche Wählerschaft.<br>Andere Umfrage.</strong><p>Fünf Lektionen zu Stichproben und Unsicherheit.</p><span class="tag">Simulation auf Basis von FGW · Oktober II 2026</span></div>
   </div>
+  <p class="poll-source"><strong>Ausgangswerte:</strong> <a href="https://www.forschungsgruppe.de/Umfragen/Politbarometer/Archiv/Politbarometer_2026/Oktober_II_2026/">Forschungsgruppe Wahlen, Projektion vom 23.10.2026</a> · Erhebung 20.–22.10.2026, 1.225 Befragte. <span id="source-status"></span></p>
   <nav class="lessons" aria-label="Lektionen">
     <button data-step="0" aria-current="step">Grundgesamtheit</button>
     <button data-step="1">Eine Stichprobe</button>
@@ -49,8 +50,8 @@
       <div class="control-group"><label for="focus">Partei im Fokus</label><select id="focus"></select></div>
       <div class="control-group"><label for="confidence">Konfidenzniveau</label><select id="confidence"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="99">99 %</option></select><p class="hint">Unter „Konfidenzintervalle“: mehr Sicherheit braucht breitere Intervalle.</p></div>
       <details id="scenario"><summary>Wählerschaft &amp; Zufall verändern</summary><div class="details-body">
-        <label for="gap">Wahrer Abstand CDU − SPD <output id="gap-out" for="gap">10 Prozentpunkte</output></label><input type="range" id="gap" min="-10" max="20" step="1" value="10"><div class="range-ends"><span>SPD +10</span><span>CDU +20</span></div>
-        <div class="presets"><button data-gap="10">Colab-Beispiel</button><button data-gap="2">Knappes Rennen</button><button data-gap="0">Gleichstand</button></div><p class="hint">CDU und SPD teilen sich zusammen 52 %. Alle anderen Parteianteile bleiben gleich.</p>
+        <label for="gap">Modellabstand CDU/CSU − SPD <output id="gap-out" for="gap">9 Prozentpunkte</output></label><input type="range" id="gap" min="-10" max="20" step="1" value="9"><div class="range-ends"><span>SPD +10</span><span>CDU +20</span></div>
+        <div class="presets"><button data-gap="9">FGW Oktober 2026</button><button data-gap="2">Knappes Rennen</button><button data-gap="0">Gleichstand</button></div><p class="hint">CDU/CSU und SPD teilen sich im Modell zusammen 37 %. Alle anderen Parteianteile bleiben gleich.</p>
         <label for="seed">Startwert des Zufalls (Seed)</label><input id="seed" type="number" min="0" max="4294967295" step="1" value="123"><p class="hint">Gleiche Einstellungen und gleiche Ziehungsnummer liefern dieselben Werte.</p>
       </div></details>
       <p class="local-note">Alle Berechnungen laufen in Ihrem Browser. Es werden keine Antworten erhoben.</p>
@@ -59,12 +60,12 @@
   </div>
   <p id="status" class="sr-only" role="status" aria-live="polite"></p>
   <details class="methods"><summary>Modell, Quellen und Bezug zum Colab</summary><div class="methods-body">
-    <p>Ausgangspunkt ist Christians Colab <a href="https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/Have%20confidence(intervals)%20in%20Wahlumfragen.ipynb">„Have confidence(intervals) in Wahlumfragen“</a>. Seine fiktiven Beispielanteile bleiben erhalten. Die hier gezeigten 10.000 Personen bilden diese Anteile exakt ab; sie sind keine erneut zufällig erzeugte Population und keine aktuellen Wahlprognosen.</p>
+    <p>Ausgangspunkt ist Christians Colab <a href="https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/Have%20confidence(intervals)%20in%20Wahlumfragen.ipynb">„Have confidence(intervals) in Wahlumfragen“</a>. Die Ausgangswerte stammen jetzt aus der FGW-Projektion vom 23.10.2026: CDU/CSU 23 %, SPD 14 %, Grüne 13 %, FDP 3 %, Linke 11 %, AfD 26 % und Sonstige 10 %. Die Projektion ist eine unsichere Umfrageschätzung. Für die Simulation verwenden wir sie als festgelegte Modellanteile und veranschaulichen sie anhand von 10.000 konstruierten Personen. Die echten 1.225 Befragten werden hier nicht rekonstruiert; es handelt sich nicht um Umfrage-Mikrodaten.</p>
     <p>Jede Umfrage besteht aus unabhängigen Ziehungen <strong>mit Zurücklegen</strong> aus derselben Wählerschaft (Multinomialmodell). Eine Person kann rechnerisch mehrfach gezogen werden. So verwenden alle Lektionen dasselbe Modell; im Colab wechselte die Ziehungsart. Die 10.000 Personen dienen der Anschauung. Es wird keine Endlichkeitskorrektur angewendet.</p>
     <p>Einzelne Parteianteile erhalten <strong>Wilson-Konfidenzintervalle</strong>. Ihr langfristiger Abdeckungsanteil liegt näherungsweise beim gewählten Niveau; wegen diskreter Daten muss er nicht exakt 95 % betragen. Die mittleren 95 % der simulierten Schätzwerte unter „Viele Stichproben“ beschreiben dagegen die Stichprobenverteilung. Diese beiden Größen werden hier ausdrücklich getrennt.</p>
     <p>Für den Abstand zweier Parteien aus derselben Umfrage gilt näherungsweise: SE(Â − B̂) = √[(Â + B̂ − (Â − B̂)²) / n]. Das Intervall ist Abstand ± z · SE. Es berücksichtigt die negative Kovarianz der beiden Anteile. Bei kleinen Zellen ist diese Normalapproximation unzuverlässig; die App kennzeichnet das Ergebnis entsprechend. Die Intervalle gelten jeweils für eine Partei bzw. einen vorab gewählten Vergleich, nicht gleichzeitig für alle Vergleiche.</p>
     <p>Methodische Referenzen: <a href="https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm">NIST: Wilson-Intervalle für Anteile</a>, <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm">NIST: Interpretation von Konfidenzintervallen</a>. Der Startwert 123 nutzt einen browserseitigen Zufallszahlengenerator; er reproduziert die App, nicht die Zufallsfolge von R.</p>
-    <p>Grenzen: Keine Gewichtung, keine Ausfälle, keine Auswahlverzerrung und keine Veränderung der Wahlabsichten im Zeitverlauf. Größere Stichproben verringern den Zufallsfehler; systematische Verzerrungen verschwinden dadurch nicht. Eine Umfrage beschreibt Wahlabsichten zum Befragungszeitpunkt, kein sicheres späteres Wahlergebnis.</p>
+    <p>Grenzen: Die FGW-Projektion wird im vereinfachten Lehrmodell als fest angenommen. Die simulierten Intervalle sind keine nachträgliche Berechnung der tatsächlichen FGW-Unsicherheit. Keine Gewichtung, keine Ausfälle, keine Auswahlverzerrung und keine Veränderung der Wahlabsichten im Zeitverlauf. Größere Stichproben verringern den Zufallsfehler; systematische Verzerrungen verschwinden dadurch nicht. Eine Umfrage beschreibt Wahlabsichten zum Befragungszeitpunkt, kein sicheres späteres Wahlergebnis.</p>
   </div></details>
   <footer><span>Umfragelabor · MethodLab</span><a href="https://cstecker.github.io/politicsRLab/">Weitere Angebote im MethodLab ↗</a></footer>
 </main>

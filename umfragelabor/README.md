@@ -18,14 +18,14 @@ Kanonische Quellen: `site/`. Kein Framework und keine neuen Abhängigkeiten. Sei
 4. Konfidenzintervalle: Wilson-Intervalle jeder Stichprobe, Abdeckung über alle Wiederholungen; die ersten 50 Intervalle werden gezeichnet.
 5. Wer liegt vorn: einzelne Parteiintervalle und direktes Intervall für den Abstand zweier Anteile derselben Umfrage. Kleine Zellen werden gekennzeichnet.
 
-Einstellbar: 50–5.000 Befragte in Schritten von 50, 50/100/500/1.000 Umfragen, alle sieben Fokusparteien, 90/95/99 % Konfidenzniveau, Seed und wahrer CDU-SPD-Abstand von −10 bis +20 Prozentpunkten. Szenarien: Colab-Beispiel (31/21 %), knappes Rennen (27/25 %) und Gleichstand (26/26 %). CDU und SPD summieren sich immer zu 52 %; die übrigen Anteile bleiben konstant.
+Einstellbar: 50–5.000 Befragte in Schritten von 50, 50/100/500/1.000 Umfragen, alle sieben Fokusparteien, 90/95/99 % Konfidenzniveau, Seed und wahrer CDU/CSU-SPD-Abstand von −10 bis +20 Prozentpunkten. Szenarien: FGW Oktober 2026 (23/14 %), knappes Rennen (19,5/17,5 %) und Gleichstand (18,5/18,5 %). CDU/CSU und SPD summieren sich immer zu 37 %; die übrigen Anteile bleiben konstant.
 
 Jede Lektion enthält eine Aufgabe und eine Verständnisfrage mit Feedback. Tabellen und CSV ermöglichen die Weiterarbeit. Die CSV enthält Einzelstichprobe und alle simulierten Umfragen im langen Format; sieben Zeilen pro Umfrage, einschließlich Zählwerten und Wilson-Grenzen. UTF-8 mit BOM, Semikolon und Dezimalkomma; in R mit `readr::read_csv2()` einlesen.
 
 ## Präzisierungen gegenüber dem Notebook
 
-- Die Beispielanteile sind fiktiv und aus dem Colab übernommen; keine aktuellen Umfragedaten.
-- Die Grundgesamtheit bildet diese Anteile exakt ab. Im Notebook wurde sie zufällig aus den vorgegebenen Wahrscheinlichkeiten generiert, aber teilweise mit den Vorgabewerten verglichen.
+- Seit 09.11.2026 stammen die Ausgangswerte aus der FGW-Projektion vom 23.10.2026: CDU/CSU 23 %, SPD 14 %, Grüne 13 %, FDP 3 %, Linke 11 %, AfD 26 %, Sonstige 10 %. Die Erhebung vom 20.–22.10.2026 umfasste 1.225 Wahlberechtigte. Quelle: [Forschungsgruppe Wahlen, Oktober II 2026](https://www.forschungsgruppe.de/Umfragen/Politbarometer/Archiv/Politbarometer_2026/Oktober_II_2026/).
+- Für die Simulation werden diese unsicheren Projektionsergebnisse als feste Modellanteile verwendet; sie sind keine bekannte Wahrheit über Deutschland. Die simulierten Intervalle sind keine FGW-Originalintervalle. Die Grundgesamtheit bildet die Modellanteile exakt ab. Im Notebook wurde sie zufällig aus den vorgegebenen Wahrscheinlichkeiten generiert, aber teilweise mit den Vorgabewerten verglichen.
 - Alle Stichproben verwenden konsistent unabhängige Ziehungen **mit Zurücklegen**. Das Notebook wechselte zwischen ohne und mit Zurücklegen. Die 10.000 Personen dienen der Anschauung; es wird keine Endlichkeitskorrektur verwendet.
 - Die 2,5%- und 97,5%-Quantile der Umfragewerte beschreiben deren mittleren 95%-Bereich. Sie werden von einem aus einer einzelnen Stichprobe berechneten Konfidenzintervall getrennt.
 - Konfidenzintervalle werden über ihre langfristige Abdeckung erklärt. Für ein bereits berechnetes Intervall wird keine 95%-Wahrscheinlichkeit für den festen Parameter behauptet.
@@ -60,3 +60,7 @@ Browser: alle fünf Lektionen, neue Einzelziehungen/Serien, 1.000 Umfragen mit j
 ## Veröffentlichung am 09.11.2026
 
 Studierende werden durchgehend gesiezt. Haupttitel: „Have confidence(intervals) in polls.“; die fünf Lektionsüberschriften erscheinen ohne Nummerierung. Der MethodLab-Katalog enthält acht Angebote; die App ergänzt den weiterhin verlinkten Colab-Bestand. Der bestehende Pages-Workflow prüft den Statistikkern vor dem gemeinsamen Build.
+
+## FGW-Datenaktualisierung vom 09.11.2026
+
+Quellstand Oktober II 2026; BSW ist nicht separat ausgewiesen und verbleibt in Sonstige. Quelle, Datum und reale Fallzahl sind in der App sichtbar. Alle simulierten Stichproben bleiben künstlich. CDU wird korrekt als CDU/CSU bezeichnet. Die Szenarioregelung verändert nur das Verhältnis von CDU/CSU und SPD bei zusammen 37 %. Zurücksetzen stellt auch die feste Diagrammskala wieder her.

@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 const require=createRequire(import.meta.url);
 const S=require('../site/stats.js');
 const close=(a,b,tol=1e-10)=>assert.ok(Math.abs(a-b)<tol, a+' != '+b);
-for(const gap of [-10,0,2,10,20]) {
+for(const gap of [-10,0,2,9,20]) {
   const p=S.population(gap);
   close(p.reduce((a,b)=>a+b,0),1);
   close((p[0]-p[1])*100,gap);
@@ -11,6 +11,10 @@ for(const gap of [-10,0,2,10,20]) {
 }
 assert.deepEqual(S.sample([0,1,0],50,S.random(12)),[0,50,0]);
 const p=S.population();
+assert.deepEqual(p,[.23,.14,.13,.03,.11,.26,.10]);
+assert.equal(S.PARTIES[0].name,'CDU/CSU');
+assert.equal(S.POLL.id,'fgw-2026-10-23');
+assert.equal(S.POLL.sampleSize,1225);
 const sample=S.sample(p,200,S.random(123));
 assert.equal(sample.reduce((a,b)=>a+b,0),200);
 assert.equal(sample.length,7);

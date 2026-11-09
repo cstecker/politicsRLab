@@ -2,11 +2,16 @@
 (function (scope) {
   'use strict';
   const PARTIES = [
-    { name: 'CDU', color: '#222222' }, { name: 'SPD', color: '#c5313b' },
+    { name: 'CDU/CSU', color: '#222222' }, { name: 'SPD', color: '#c5313b' },
     { name: 'Grüne', color: '#398345' }, { name: 'FDP', color: '#b18b00' },
     { name: 'LINKE', color: '#a52e83' }, { name: 'AfD', color: '#2687bb' },
     { name: 'Sonstige', color: '#7a858e' }
   ];
+  const POLL = {
+    id: 'fgw-2026-10-23', date: '23.10.2026', sampleSize: 1225, defaultGap: 9,
+    percentages: [23, 14, 13, 3, 11, 26, 10],
+    url: 'https://www.forschungsgruppe.de/Umfragen/Politbarometer/Archiv/Politbarometer_2026/Oktober_II_2026/'
+  };
   const Z = { 90: 1.6448536269514722, 95: 1.959963984540054, 99: 2.5758293035489004 };
   function random(seed) {
     let state = seed >>> 0;
@@ -18,9 +23,10 @@
       return ((t ^ t >>> 14) >>> 0) / 4294967296;
     };
   }
-  function population(gap = 10) {
+  function population(gap = POLL.defaultGap) {
     if (!Number.isFinite(gap) || gap < -10 || gap > 20) throw new RangeError('Abstand außerhalb des Lehrbereichs.');
-    return [(26 + gap / 2) / 100, (26 - gap / 2) / 100, .16, .06, .045, .15, .065];
+    const pairTotal = POLL.percentages[0] + POLL.percentages[1];
+    return [(pairTotal + gap) / 200, (pairTotal - gap) / 200, ...POLL.percentages.slice(2).map(p => p / 100)];
   }
   function sample(probs, n, rng) {
     if (!Number.isInteger(n) || n < 1) throw new RangeError('n muss eine positive ganze Zahl sein.');
@@ -62,7 +68,7 @@
     const sd=values.length>1?Math.sqrt(values.reduce((a,b)=>a+(b-mean)**2,0)/(values.length-1)):0;
     return {mean,sd,lower:quantile(values,.025),upper:quantile(values,.975)};
   }
-  const api={PARTIES,Z,random,population,sample,simulate,wilson,difference,quantile,summary};
+  const api={PARTIES,POLL,Z,random,population,sample,simulate,wilson,difference,quantile,summary};
   if (typeof module !== 'undefined' && module.exports) module.exports=api;
   else scope.PollStats=api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
