@@ -1,0 +1,26 @@
+/* politicsRLab · gemeinsame Gestaltung; Quelle: brand/ im Projektstamm. */
+:root {
+  --prl-blue: #005aa9;
+  --prl-blue-dark: #004680;
+  --prl-blue-light: #e7f1fb;
+  --prl-ink: #1f2933;
+  --prl-muted: #596773;
+  --prl-surface: #ffffff;
+  --prl-background: #f5f7f9;
+  --prl-line: #dce2e8;
+  --prl-font: Arial, Helvetica, sans-serif;
+}
+.prl-institution { background: #fff; border-top: 5px solid var(--prl-blue); border-bottom: 1px solid var(--prl-line); color: var(--prl-ink); font-family: var(--prl-font); }
+.prl-institution__inner { box-sizing: border-box; max-width: 1320px; margin: 0 auto; padding: 4px 34px; display: flex; align-items: center; gap: clamp(18px, 3vw, 42px); }
+.prl-institution__logo { display: block; flex: 0 0 clamp(110px, 14vw, 176px); line-height: 0; background: white; }
+.prl-institution__logo img { display: block; width: 100%; height: auto; }
+.prl-institution__text { min-width: 0; max-width: 700px; padding: 12px 0; }
+.prl-institution__department { color: var(--prl-blue); font-size: clamp(14px, 1.5vw, 19px); font-weight: 700; line-height: 1.4; text-decoration: none; text-underline-offset: 4px; }
+.prl-institution__department:hover { text-decoration: underline; }
+.prl-institution__person { margin: 9px 0 0; color: var(--prl-ink); font-size: 14px; line-height: 1.45; }
+.prl-institution a:focus-visible { outline: 3px solid var(--prl-blue); outline-offset: 5px; }
+@media (max-width: 600px) {
+  .prl-institution__inner { padding: 4px 16px; gap: 16px; }
+  .prl-institution__person { font-size: 12px; margin-top: 7px; }
+}
+@media print { .prl-institution { border-top-width: 2px; } }

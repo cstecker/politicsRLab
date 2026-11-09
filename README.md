@@ -18,6 +18,7 @@ Aktueller Übungsdatenstand: **13.10.2026**, 150 abgeschlossene Interviews mit E
 - [Parteienlabor](https://parteienlabor-brd.plugchris.chatgpt.site/): Parteipositionen schätzen, gemeinsame Mittelwerte und Konfidenzintervalle, Verteilungen und OES-Vergleich. [Demo](https://parteienlabor-brd.plugchris.chatgpt.site/demo). Die App mit gemeinsamer Datenerhebung wird separat betrieben.
 - [Räumliche Modelle](spatial-models-demo/README.md): vorhandene statische Anwendung zu Idealpunkten, Präferenzmengen, Gewinnmenge und Median.
 - [Wahlsystemlabor](wahlsystemlabor/README.md): [öffentlicher Entwurf](https://cstecker.github.io/politicsRLab/wahlsystemlabor/) zum Conjoint von Jankowski/Linhart/Tepe (2019), mit fünf Paarentscheidungen, Lehrmodus und simulierter AMCE-Auswertung. Testentscheidungen bleiben im jeweiligen Browser; noch keine gemeinsame Hörsaalerhebung.
+- [Umfragelabor](https://cstecker.github.io/politicsRLab/umfragelabor/): Have confidence(intervals) in polls. Stichprobengröße, Zufallsschwankungen, Konfidenzintervalle und Parteienabstände interaktiv untersuchen.
 - [MethodLab-Startseite und Build](hub/README.md): Katalog und Veröffentlichung über GitHub Pages.
 
 Alle Lehr-Apps verwenden die vollständige TU-Wort-Bildmarke, den verlinkten Arbeitsbereich „Politisches System Deutschlands und Vergleich politischer Systeme“ und darunter „Prof. Dr. Christian Stecker“. Gemeinsame Quellen unter brand/; Übernahme mit python tools/sync_brand.py, Kontrolle mit python tools/sync_brand.py --check. Die bestehenden Notebooks und Colab-Links bleiben erhalten.

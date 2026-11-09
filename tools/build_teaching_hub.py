@@ -47,7 +47,8 @@ def main():
     if len(ids) != len(set(ids)):
         raise ValueError('Doppelte Katalog-ID.')
     required_apps = {'spatial-models': ROOT / 'spatial-models-demo/site',
-                     'wahlsystemlabor': ROOT / 'wahlsystemlabor/site'}
+                     'wahlsystemlabor': ROOT / 'wahlsystemlabor/site',
+                     'umfragelabor': ROOT / 'umfragelabor/site'}
     for name, source in required_apps.items():
         if not (source / 'index.html').is_file():
             raise FileNotFoundError(f'App-Quelle fehlt: {source}. Siehe hub/README.md.')
@@ -67,6 +68,7 @@ def main():
         subprocess.run(['node', 'scripts/build-standalone.mjs'], cwd=lab, check=True)
         shutil.copyfile(lab / 'outputs/wahlsystemlabor-entwurf.html', output / 'wahlsystemlabor/entwurf.html')
         offline = source.replace('href="./wahlsystemlabor/"', 'href="./wahlsystemlabor/entwurf.html"')
+        offline = offline.replace('href="./umfragelabor/"', 'href="./umfragelabor/index.html"')
         offline = offline.replace('href="./spatial-models/"', 'href="./spatial-models/index.html"')
         offline = offline.replace('class="wordmark" href="./"', 'class="wordmark" href="./methodlab-entwurf.html"')
         (output / 'methodlab-entwurf.html').write_text(offline, encoding='utf-8')

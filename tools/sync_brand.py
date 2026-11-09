@@ -43,7 +43,7 @@ def generated_files():
         jsx = header_markup(identity, '/brand/tu-darmstadt.svg').replace('class=', 'className=')
         component = '// Generiert durch tools/sync_brand.py im politicsRLab-Projektstamm.\nexport default function InstitutionalHeader() {\n  return (\n' + jsx + '\n  );\n}\n'
         files[app / 'app/institutional-header.tsx'] = component.encode('utf-8')
-    for relative in ('spatial-models-demo/site', 'wahlsystemlabor/site', 'hub/site'):
+    for relative in ('spatial-models-demo/site', 'wahlsystemlabor/site', 'hub/site', 'umfragelabor/site'):
         site = ROOT / relative
         if not site.is_dir():
             continue

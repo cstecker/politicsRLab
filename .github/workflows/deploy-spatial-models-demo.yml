@@ -7,6 +7,7 @@ on:
     paths:
       - "hub/**"
       - "wahlsystemlabor/**"
+      - "umfragelabor/**"
       - "brand/**"
       - "tools/sync_brand.py"
       - "tools/build_teaching_hub.py"
@@ -49,6 +50,12 @@ jobs:
       - name: Test conjoint design and statistics
         working-directory: wahlsystemlabor
         run: node --test tests/*.test.mjs
+
+      - name: Check Umfragelabor
+        run: |
+          node --check umfragelabor/site/stats.js
+          node --check umfragelabor/site/app.js
+          node umfragelabor/tools/check.mjs
 
       - name: Build MethodLab and static apps
         run: python tools/build_teaching_hub.py --public

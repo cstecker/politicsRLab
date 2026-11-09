@@ -19,6 +19,20 @@
     "use": "Einzeln & Projektion", "href": "./spatial-models/", "action": "Räumliche Modelle öffnen"
   },
   {
+    "id": "umfragelabor",
+    "title": "Have confidence(intervals) in polls.",
+    "kind": "app",
+    "format": "Interaktive App",
+    "status": "Online",
+    "topic": "Wahlumfragen · Stichproben · Unsicherheit",
+    "description": "Erkunden Sie Stichprobengrößen, Zufallsschwankungen und Konfidenzintervalle. Vergleichen Sie Parteien und simulieren Sie neue Umfragen.",
+    "use": "Selbststudium & Projektion",
+    "href": "./umfragelabor/",
+    "action": "Umfragelabor öffnen",
+    "secondary_href": "https://colab.research.google.com/github/cstecker/politicsRLab/blob/main/Have%20confidence%28intervals%29%20in%20Wahlumfragen.ipynb",
+    "secondary_action": "Colab öffnen"
+  },
+  {
     "id": "kursumfrage", "title": "In welcher Blase bin ich denn hier gelandet?",
     "kind": "colab", "format": "Colab & R", "status": "Kursumfrage 2026/27", "topic": "Kursumfrage · R-Einstieg",
     "description": "Mit aufbereiteten Kursumfragedaten Häufigkeiten, Mittelwerte, Diagramme und erste Hypothesentests erarbeiten.",
