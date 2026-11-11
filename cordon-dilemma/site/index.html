@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Cordon Dilemma verstehen: selbst entscheiden, Daten entdecken und ein Conjoint-Experiment nachvollziehen.">
+  <meta name="color-scheme" content="light">
+  <title>Was denken die Wähler über die Brandmauer und Alternativen? · MethodLab</title>
+  <link rel="stylesheet" href="./brand/brand.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./study-data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<!-- politicsRLab:identity:start -->
+<header class="prl-institution" aria-label="Hochschule und Arbeitsbereich">
+  <div class="prl-institution__inner">
+    <a class="prl-institution__logo" href="https://www.tu-darmstadt.de/" aria-label="Technische Universität Darmstadt">
+      <img src="./brand/tu-darmstadt.svg" width="250" height="157" alt="Technische Universität Darmstadt" />
+    </a>
+    <div class="prl-institution__text">
+      <a class="prl-institution__department" href="https://www.politikwissenschaft.tu-darmstadt.de/institut/arbeitsbereiche_und_nachwuchsgruppen/de_vergleich/index.de.jsp">Politisches System Deutschlands und Vergleich politischer Systeme</a>
+      <p class="prl-institution__person">Prof. Dr. Christian Stecker</p>
+    </div>
+  </div>
+</header>
+<!-- politicsRLab:identity:end -->
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+  <nav class="chapter-nav" aria-label="Kapitel">
+    <a class="wordmark" href="#main">Method<span>Lab</span><span class="draft-tag">ENTWURF</span></a>
+    <div class="chapter-links">
+      <a href="#kontext"><span>01</span> Ausgangsposition</a>
+      <a href="#teilnehmen"><span>02</span> Selbst entscheiden</a>
+      <a href="#daten"><span>03</span> Die Daten</a>
+      <a href="#methode"><span>04</span> Die Methode</a>
+      <a href="#ergebnisse"><span>05</span> Die Befunde</a>
+      <a href="#reflexion"><span>06</span> Weiterdenken</a>
+    </div>
+    <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  </nav>
+
+  <main id="main">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="tiny-line"></span> EIN ARTIKEL. EIN EXPERIMENT. IHRE ENTSCHEIDUNG.</p>
+        <h1>Was denken die Wähler über die <span>Brandmauer und Alternativen?</span></h1>
+        <p class="hero-lead">Mit der AfD abstimmen? Eine Koalition bilden? Oder jede Zusammenarbeit ausschließen?</p>
+        <p class="hero-sub">Finden Sie heraus, wie Sie selbst abwägen – und wie aus vielen solchen Entscheidungen politikwissenschaftliche Erkenntnis wird.</p>
+        <a class="button primary" href="#kontext">Die Geschichte entdecken <span aria-hidden="true">↘</span></a>
+        <p class="hero-meta">Ca. 25–35 Minuten <span>·</span> Keine Vorkenntnisse <span>·</span> Mit R-Vertiefung</p>
+      </div>
+      <div class="hero-art" aria-label="Vier unterscheidbare Positionen zur Zusammenarbeit mit der AfD">
+        <div class="art-top"><span>POLITISCHE GRENZEN</span><span>→</span></div>
+        <div class="art-title">Zusammenarbeit ist<br>keine Ja-Nein-Frage.</div>
+        <div class="boundary-illustration" aria-hidden="true">
+          <div class="boundary-line"></div>
+          <div class="dot-cloud left-cloud"></div><div class="dot-cloud right-cloud"></div>
+          <span class="cloud-label left-label">CDU</span><span class="cloud-label right-label">AfD</span>
+          <div class="bridge bridge-one"></div><div class="bridge bridge-two"></div>
+          <div class="boundary-pill">Wo ziehen Sie die Grenze?</div>
+        </div>
+        <div class="art-levels"><span>Keine Kooperation</span><span>Gemeinsam abstimmen</span><span>Koalition</span></div>
+        <div class="art-bottom"><span>THE CORDON DILEMMA</span><span>GROSS · JUEN · STECKER</span></div>
+      </div>
+    </section>
+    <div class="paper-strip"><div class="container"><span class="strip-label">DIE STUDIE HINTER DER GESCHICHTE</span><p>Gross, Juen &amp; Stecker (2026) <span>·</span> <em>The Cordon Dilemma</em> <span>·</span> Comparative Political Studies</p><a href="https://doi.org/10.1177/00104140261448429" target="_blank" rel="noopener">Zum Artikel ↗</a></div></div>
+
+    <section id="kontext" class="container section">
+      <div class="section-heading"><p class="eyebrow">01 / AUSGANGSPOSITION</p><h2>Ausgangsposition</h2></div>
+      <div class="scrolly context-scrolly">
+        <div class="story-steps">
+          <article class="story-step active" data-context="0"><span class="step-number">AUGUST 2024</span><p>In Sachsen und Thüringen steht die Wahl bevor. Die AfD ist stark. Die CDU muss sich fragen, mit wem sie politische Mehrheiten bilden kann.</p><p>Die Studie befragt Menschen in diesen beiden Ländern und in Westdeutschland. Ihr Blick gilt den Einstellungen <strong>vor den Wahlen</strong>, nicht der heutigen Stimmung.</p></article>
+          <article class="story-step" data-context="1"><span class="step-number">DAS CORDON-DILEMMA</span><h3>Das Cordon-Dilemma</h3><p>Wer eigene Inhalte durchsetzen will, braucht Mehrheiten im Parlament. Stimmen mit der AfD können dafür vor allem für die Union attraktiv sein. Ein strikter Ausschluss der AfD wirft sie auf Kompromisse mit weiter links stehenden Parteien zurück.</p><p>Gleichzeitig kann die Kooperation Wählerinnen und Wähler entfremden, die eine Zusammenarbeit mit der AfD aus demokratischen Prinzipien ablehnen.</p></article>
+          <article class="story-step" data-context="2"><span class="step-number">VIER POSITIONEN</span><h3>Wie durchlässig ist die Grenze?</h3><p><strong>Cordon sanitaire</strong> bezeichnet die politische Norm, mit der radikalen Rechten nicht zusammenzuarbeiten. Im deutschen Kontext wird häufig von der „Brandmauer“ gesprochen.</p><p>Die Studie unterscheidet: gar keine Zusammenarbeit, gemeinsame Abstimmungen über CDU-Anträge, gemeinsame Abstimmungen über AfD-Anträge und eine Koalition.</p></article>
+          <article class="story-step" data-context="3"><span class="step-number">IHRE ERWARTUNG</span><h3>Prinzipien oder politische Inhalte?</h3><p>Eine <strong>instrumentelle</strong> Abwägung fragt: Hilft die Zusammenarbeit, meine politischen Ziele durchzusetzen? Eine <strong>prinzipielle</strong> Abwägung fragt: Ist diese Partei überhaupt ein legitimer Partner?</p><label for="prediction">Was erwarten Sie vor der Untersuchung?</label><select id="prediction"><option value="">Bitte auswählen (freiwillig)</option><option>Politische Inhalte wiegen stärker.</option><option>Die grundsätzliche Haltung zur AfD wiegt stärker.</option><option>Beides wiegt ungefähr gleich stark.</option><option>Ich habe noch keine Erwartung.</option></select></article>
+        </div>
+        <figure class="sticky-figure context-figure"><div class="figure-topline"><span>DER HANDLUNGSSPIELRAUM</span><span id="context-counter">01 / 04</span></div><div id="context-visual"></div><figcaption id="context-caption"></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="teilnehmen" class="participation section">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">02 / SELBST ENTSCHEIDEN</p><h2>Jetzt sind Sie<br>Teil des Experiments.</h2><p>Erst eine eigene Antwort finden. Danach die Ergebnisse kennenlernen.</p><p>In einem <strong>Conjoint-Experiment</strong> vergleichen Sie Personen oder Angebote, die sich in mehreren <strong>Attributen (Eigenschaften)</strong> unterscheiden. Hier sehen Sie jeweils zwei hypothetische CDU-Kandidierende. Sieben Attribute beschreiben deren Alter, Geschlecht, politische Erfahrung, Positionen zu Flüchtlingszuwanderung, Umverteilung und Ukraine-Unterstützung sowie ihren Umgang mit der AfD. Jedes Attribut hat verschiedene <strong>Ausprägungen</strong>, etwa ein Alter von 28 oder 54 Jahren. Diese Ausprägungen werden zufällig zu Profilen kombiniert. Sie bewerten beide Profile und wählen eines aus. Aus vielen solchen Entscheidungen lässt sich untersuchen, wie einzelne Eigenschaften die Auswahl beeinflussen.</p></div>
+        <div class="privacy-note"><span aria-hidden="true">◉</span><p><strong>Ihre Antworten bleiben in diesem Browser-Tab.</strong> Es gibt keine Übertragung und keine gemeinsame Kurserhebung. Neuladen behält Ihren Zwischenstand; „Antworten zurücksetzen“ löscht ihn. Sie können Fragen auslassen oder direkt zur Erklärung gehen.</p></div>
+        <div class="survey-shell">
+          <div class="survey-sidebar"><p class="eyebrow">IHR DURCHLAUF</p><ol id="survey-steps"><li class="active">Eigene Einstellungen</li><li>Kandidierendenpaar 1</li><li>Kandidierendenpaar 2</li><li>Kandidierendenpaar 3</li><li>Antworten ansehen</li></ol><button class="text-button" id="skip-survey">Direkt zur Erklärung →</button></div>
+          <div id="survey-stage" class="survey-stage"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="analysis-gate" class="container gate"><p class="eyebrow">ERST SELBST ABWÄGEN?</p><h3>Die Erklärung wartet hinter Ihren Entscheidungen.</h3><p>Nach drei Runden öffnet sich der weitere Lernpfad automatisch. Sie können ihn auch ohne Teilnahme ansehen.</p><button id="unlock-analysis" class="button secondary">Erklärung jetzt öffnen →</button></div>
+    <div id="analysis-content" hidden>
+      <section id="daten" class="container section">
+        <div class="section-heading"><p class="eyebrow">03 / DIE DATEN</p><h2>Aus einer Entscheidung<br>werden zwei Zeilen.</h2><p>Eine Zeile steht für ein Kandidierendenprofil. Auch das nicht gewählte Profil gehört zum Datensatz.</p></div>
+        <div class="data-flow"><div><strong>1</strong><span>Person</span></div><span>×</span><div><strong>3</strong><span>Runden</span></div><span>×</span><div><strong>2</strong><span>Profile</span></div><span>=</span><div class="flow-result"><strong>6</strong><span>Zeilen im Long-Format</span></div></div>
+        <div class="panel"><div class="panel-heading"><div><p class="eyebrow">VOM FRAGEBOGEN ZUR TABELLE</p><h3 id="data-heading">Ihr Durchlauf im Long-Format</h3></div><button class="button secondary small-button" id="download-own">Beispiel als CSV ↓</button></div><p id="data-explanation"></p><div class="table-scroll" tabindex="0" aria-label="Conjoint-Datensatz horizontal scrollbar"><table id="long-data"></table></div><p class="small">Die Kennung „PERSON“ verbindet die Zeilen Ihres Durchlaufs. Bei einem fiktiven Lehrbeispiel lautet sie „DEMO“.</p></div>
+
+        <details class="column-guide" open><summary>Was bedeuten die einzelnen Spalten?</summary><dl class="column-guide-list"><div><dt><code>ResponseId</code></dt><dd>Kennung der befragten Person. Sie verbindet alle Profilzeilen derselben Person.</dd></div><div><dt><code>cjround</code></dt><dd>Runde des Conjoint-Experiments: 1, 2 oder 3.</dd></div><div><dt><code>cjprofile</code></dt><dd>Profil innerhalb der jeweiligen Runde: 1 für Kandidat 1, 2 für Kandidat 2.</dd></div><div><dt><code>cj_elect</code></dt><dd>Auswahlentscheidung: 1 = dieses Profil wurde gewählt; 0 = das andere Profil derselben Runde wurde gewählt.</dd></div><div><dt><code>cj_skalo</code></dt><dd>Bewertung des Profils auf der Skala von −5 (halte überhaupt nichts davon) bis +5 (halte sehr viel davon).</dd></div><div><dt><code>cj_age</code></dt><dd>Zufällig zugewiesenes Alter der kandidierenden Person, in Jahren.</dd></div><div><dt><code>cj_geschlecht</code></dt><dd>Zufällig zugewiesenes Geschlecht der kandidierenden Person.</dd></div><div><dt><code>cj_experience</code></dt><dd>Zufällig zugewiesene bisherige politische Erfahrung: Kommunen, Landtag und gegebenenfalls Landesregierung.</dd></div><div><dt><code>cj_immi</code></dt><dd>Zufällig zugewiesene Position zum Zuzug von Flüchtlingen: keine Obergrenze, eine der beiden Obergrenzen oder vollständiger Stopp.</dd></div><div><dt><code>cj_redis</code></dt><dd>Zufällig zugewiesene Position zur Verringerung von Einkommens- und Vermögensunterschieden.</dd></div><div><dt><code>cj_ukraine</code></dt><dd>Zufällig zugewiesene Position zur Unterstützung der Ukraine.</dd></div><div><dt><code>cj_afdtreatment</code></dt><dd>Zufällig zugewiesene Position zur Zusammenarbeit mit der AfD: keine Zusammenarbeit, gemeinsame Abstimmungen über CDU- oder AfD-Anträge oder Koalition.</dd></div></dl><p>Die Attribute beschreiben die Profile. Auswahl und Bewertung halten die Reaktion der befragten Person fest. <code>NA</code> kennzeichnet eine noch fehlende Antwort.</p></details>
+        <div class="two-column data-notes"><div><h3>Was bedeutet eine 1?</h3><p><code>cj_elect = 1</code> heißt: Dieses Profil wurde gegenüber dem anderen Profil derselben Runde gewählt. Das Gegenprofil erhält eine 0. Eine niedrige absolute Bewertung kann trotzdem mit einer 1 verbunden sein.</p><p><code>cj_skalo</code> ist dagegen die Bewertung von −5 bis +5. <strong>Wahl und Bewertung sind zwei verschiedene Zielgrößen.</strong></p></div><div><h3>Wie groß ist der Studiendatensatz?</h3><div id="sample-numbers"></div><details><summary>Fallauswahl</summary><p>Nach der Aufmerksamkeitsprüfung verbleiben 2.849 Personen (959 Sachsen, 746 Thüringen, 1.144 Westdeutschland). Für die Conjoint-Auswertung nutzt die Replikation vollständige Fälle auf 17 Variablen, einschließlich der Profilbewertung.</p><p>Vor dieser Auswahl sind 16.638 Wahlwerte vorhanden; verwendet werden 16.548 vollständige Profilzeilen von 2.773 Personen. Fehlende Werte werden nicht als neutrale Antworten behandelt.</p></details></div></div>
+      </section>
+
+      <section id="methode" class="method-section section"><div class="container">
+        <div class="section-heading"><p class="eyebrow">04 / DIE METHODE</p><h2>Sieben Eigenschaften.<br>Was macht den Unterschied?</h2><p>Das Conjoint zerlegt eine komplexe Entscheidung, ohne die Personen nach dem Gewicht jeder Eigenschaft zu fragen.</p></div>
+        <div class="scrolly method-scrolly">
+          <div class="story-steps">
+            <article class="story-step active" data-method="0"><span class="step-number">SCHRITT 1 / ZUFÄLLIG ZUWEISEN</span><h3>Das Profil ist ein Bündel.</h3><p>Alter, Geschlecht, Erfahrung, Flüchtlingszuzug, Umverteilung, Ukraine und Umgang mit der AfD werden unabhängig zufällig kombiniert. Beide Personen treten für die CDU an.</p><p>So kommt eine Koalitionsposition über viele Runden hinweg mit ganz unterschiedlichen anderen Eigenschaften vor. Zufällig zuweisen ist etwas anderes als zufällig aus der Bevölkerung ziehen.</p></article>
+            <article class="story-step" data-method="1"><span class="step-number">SCHRITT 2 / ZUSAMMENFASSEN</span><h3>Alle Profile mit derselben Position.</h3><p>Wir sammeln etwa sämtliche Profile, die jede Zusammenarbeit ausschließen. Wie viele davon wurden gewählt? Der Anteil ist der <strong>Marginal Mean</strong> dieser Ausprägung.</p><p id="mm-example"></p><p>Die anderen zufällig zugewiesenen Eigenschaften werden dabei <strong>ausgemittelt</strong>. Sie müssen nicht in jedem verglichenen Profil identisch sein.</p></article>
+            <article class="story-step" data-method="2"><span class="step-number">SCHRITT 3 / VERGLEICHEN</span><h3>50 Prozent sind ein Orientierungspunkt.</h3><p>Pro Runde wird genau eines von zwei Profilen gewählt. Über alle vollständigen Paare beträgt die mittlere Auswahlrate daher 50 Prozent.</p><p>Ein Wert von 60 Prozent bedeutet: Profile mit dieser Eigenschaft wurden im Durchschnitt zu 60 Prozent gewählt. Er bedeutet weder 60 Prozent Zustimmung zur Position noch 60 Prozent Stimmen für die CDU.</p></article>
+            <article class="story-step" data-method="3"><span class="step-number">SCHRITT 4 / UNSICHERHEIT ZEIGEN</span><h3>Viele Profile, weniger unabhängige Menschen.</h3><p>Sechs Profilzeilen derselben Person sind nicht sechs unabhängige Befragte. Die 95%-Konfidenzintervalle werden deshalb <strong>nach befragter Person geclustert</strong>.</p><p>Die zufällige Zuweisung erlaubt kausale Vergleiche der Profilmerkmale im Experiment. Parteipräferenz und Einstellungen der Befragten sind dagegen gemessen, nicht randomisiert.</p></article>
+          </div>
+          <figure class="sticky-figure method-figure"><div class="figure-topline"><span>SO ENTSTEHT EIN SCHÄTZWERT</span><span id="method-counter">01 / 04</span></div><div id="method-visual"></div><figcaption id="method-caption"></figcaption></figure>
+        </div>
+        <details class="r-details"><summary>Vertiefung: MM, AMCE und der R-Code</summary><div class="two-column"><div><h3>Ein Niveau und ein Unterschied</h3><p>Ein Marginal Mean (MM) ist ein durchschnittliches Niveau der Auswahlwahrscheinlichkeit. Ein AMCE vergleicht zwei Ausprägungen eines Merkmals, gemittelt über die anderen Merkmale und Gegenprofile.</p><p>Eine Differenz von 0,12 entspricht <strong>12 Prozentpunkten</strong>. Für die Unsicherheit dieser Differenz braucht man einen eigenen Kontrast; die beiden Konfidenzintervalle nur auf Überlappung zu prüfen reicht dafür nicht.</p><p>Der Artikel berichtet vor allem MM. Für die Profilbewertungen verwendet er dieselbe Idee auf der Skala −5 bis +5. Der Code rechts setzt die vollständige Fallauswahl aus der Replikation voraus.</p></div><pre><code># Eine Zeile je Person × Runde × Profil
+# df: vollständige Fälle wie im Replikationspaket
+mm &lt;- cregg::cj(
+  data = df,
+  formula = cj_elect ~ cj_age + cj_geschlecht +
+    cj_experience + cj_immi + cj_redis +
+    cj_ukraine + cj_afdtreatment,
+  estimate = "mm",
+  id = ~ ResponseId
+)
+
+# Getrennte Mittelwerte nach Parteipräferenz:
+# by = ~ party_camp
+# Für Bewertungen: cj_skalo statt cj_elect</code></pre></div></details>
+      </div></section>
+
+      <section id="ergebnisse" class="container section">
+        <div class="section-heading"><p class="eyebrow">05 / DIE BEFUNDE</p><h2>Eine Grenze.<br>Unterschiedliche Wählerschaften.</h2><p>Die eigenen Antworten sind ein Einstieg. Die folgenden Zahlen stammen aus der Studie.</p></div>
+        <div class="scrolly results-scrolly">
+          <div class="story-steps">
+            <article class="story-step active" data-result="all"><span class="step-number">ABBILDUNG 3 / ALLE BEFRAGTEN</span><h3>Eine Koalition ist etwas anderes als eine gemeinsame Abstimmung.</h3><p>Im Gesamtdatensatz werden CDU-Profile mit Koalitionsbereitschaft seltener gewählt. Eine gemeinsame Abstimmung über CDU-Anträge wird deutlich anders bewertet.</p><p>Die Brandmauer als einfache Ja-Nein-Frage zu stellen, würde diesen Unterschied verdecken.</p></article>
+            <article class="story-step" data-result="leftbloc"><span class="step-number">ABBILDUNG 4 / SPD, GRÜNE, LINKE</span><h3>Abgrenzung kann Unterstützung bringen.</h3><p>Unter Befragten mit Wahlabsicht für SPD, Grüne oder Linke haben CDU-Profile mit strikter Nichtkooperation die höchste Auswahlwahrscheinlichkeit.</p><p>Das sind mögliche strategische Unterstützerinnen und Unterstützer der CDU. Ihre Antworten dürfen im Gesamtdurchschnitt nicht verschwinden.</p></article>
+            <article class="story-step" data-result="cdu"><span class="step-number">ABBILDUNG 4 / CDU</span><h3>Die Urheberschaft eines Antrags zählt.</h3><p>CDU-Anhängerinnen und -Anhänger differenzieren: Eine Koalition wird abgestraft, gemeinsame Abstimmungen über CDU-Anträge werden günstiger bewertet.</p><p>Der Mittelweg ist enger als eine allgemeine Bereitschaft zur Zusammenarbeit.</p></article>
+            <article class="story-step" data-result="afd"><span class="step-number">ABBILDUNG 4 / AfD</span><h3>Dieselbe Öffnung kann andere Menschen anziehen.</h3><p>Im AfD-Elektorat werden CDU-Profile mit Kooperationsbereitschaft eher gewählt. Damit wird das Dilemma sichtbar: Eine Position kann bei einer Wählerschaft gewinnen und bei einer anderen verlieren.</p><p>Ob unter realen Wahlbedingungen ein Nettogewinn entsteht, beantwortet dieser Paarvergleich nicht.</p></article>
+          </div>
+          <figure class="sticky-figure result-figure"><div class="figure-topline"><span>UMGANG MIT DER AfD</span><span class="data-badge">STUDIENDATEN</span></div><h3 id="result-title"></h3><div id="result-chart"></div><figcaption>Punkte: Marginal Means der Auswahl (0–100 %). Linien: 95%-Konfidenzintervalle, nach Person geclustert. Gestrichelt: 50 %. <span id="result-n"></span></figcaption></figure>
+        </div>
+        <div class="explorer panel"><div class="panel-heading"><div><p class="eyebrow">ABBILDUNGEN 3–5 / SELBST ERKUNDEN</p><h3>Was verändert die Entscheidung noch?</h3></div><span class="data-badge">STUDIENDATEN</span></div><div class="controls"><label>Profilmerkmal<select id="explore-feature"></select></label><label>Wählerschaft<select id="explore-group"></select></label><label>Zielgröße<select id="explore-outcome"><option value="choice">Auswahlwahrscheinlichkeit</option><option value="rating">Bewertung (−5 bis +5)</option></select></label></div><div id="explore-chart"></div><p id="explore-note" class="small"></p><details><summary>Schätzwerte als Tabelle</summary><div class="table-scroll"><table id="explore-table"></table></div></details></div>
+
+        <div class="section-heading compact"><p class="eyebrow">ABBILDUNG 2 / DIE EINSTELLUNGEN DAHINTER</p><h2>Schon vor dem Experiment<br>gehen die Meinungen auseinander.</h2><p>Die direkt abgefragten Einstellungen sind keine Ergebnisse der zufälligen Profilzuweisung.</p></div>
+        <div class="panel"><div class="controls"><label>Aussage<select id="agreement-item"></select></label></div><div id="agreement-chart"></div><div class="agreement-legend" id="agreement-legend"></div><p class="small">Anteile gültiger Antworten je Parteiwahlabsicht. Fünfstufige Zustimmungsskala im Originalwortlaut. „Andere“ und Nichtwahl werden in dieser Übersicht ausgelassen. Eine eigene Antwort ist eine Einzelbeobachtung und kein Stichprobenvergleich.</p></div>
+
+        <div class="section-heading compact"><p class="eyebrow">ABBILDUNGEN 6–7 / INHALTE UND PRINZIPIEN</p><h2>Was trennt die Gruppen<br>innerhalb einer Wählerschaft?</h2><p>Wir vergleichen Einstellungen zur Flüchtlingszuwanderung und zur Behandlung der AfD als normale Partei.</p></div>
+        <div class="panel motivation-panel"><div class="controls"><label>Wählerschaft<select id="motive-group"></select></label><label>Vergleich nach<select id="motive-kind"><option value="norm">AfD als normale Partei behandeln</option><option value="migration">Flüchtlingszuzug einschränken</option></select></label><label>Region<select id="motive-region"><option value="all">Alle drei Erhebungsregionen</option><option value="east">Sachsen und Thüringen</option><option value="west">Westdeutschland</option></select></label></div><div class="motive-key"><span><i class="key-other"></i>Keine Zustimmung (inkl. teils/teils)</span><span><i class="key-agree"></i>Zustimmung (eher / voll)</span></div><div id="motivation-chart"></div><p id="motivation-n" class="small"></p><div class="takeaway"><h3>Grundsätzliche Haltungen strukturieren die Abwägung.</h3><p>Die Studie findet sowohl inhaltliche als auch prinzipielle Unterschiede. Die Unterschiede nach Haltung zur Normalbehandlung der AfD fallen häufig größer aus – auch beim getrennten Blick auf Westdeutschland und Sachsen/Thüringen.</p><p><strong>Das ist ein Vergleich gemessener Gruppen.</strong> Er zeigt nicht, dass eine Änderung dieser Einstellung bei derselben Person kausal die Kooperationsbereitschaft verändert. Die Zweiteilung fasst teils/teils mit Ablehnung zusammen, entsprechend der Replikation.</p></div></div>
+      </section>
+
+      <section id="reflexion" class="reflection-section section"><div class="container">
+        <div class="section-heading"><p class="eyebrow">06 / WEITERDENKEN</p><h2>Die Daten zeigen ein Dilemma.<br>Sie treffen keine politische Entscheidung.</h2></div>
+        <div class="two-column"><div><h3>Was wir mitnehmen können</h3><p>Wählerinnen und Wähler unterscheiden zwischen Formen der Zusammenarbeit. Dieselbe Position hat für unterschiedliche Wählerschaften unterschiedliche Folgen. Politische Inhalte und grundsätzliche Haltungen zur AfD gehören beide in die Erklärung.</p><p>Das erweitert die Frage nach dem Umgang mit der radikalen Rechten: Neben Wahlkampfpositionen zählt, wie Parteien im Parlament Mehrheiten organisieren.</p><div id="personal-reflection"></div></div><div><h3>Was offenbleibt</h3><ul class="open-questions"><li><strong>Von Profilen zu echten Wahlen:</strong> Zwei hypothetische CDU-Profile ergeben keine Prognose von Parteistimmen oder tatsächlichen Wechseln.</li><li><strong>Von der Stichprobe zur Bevölkerung:</strong> Quotierung nach Alter, Geschlecht, Bildung und Region schafft Vielfalt, ersetzt aber keine Zufallsstichprobe. Die MM werden hier wie im Paket ungewichtet berechnet.</li><li><strong>Von 2024 zu anderen Kontexten:</strong> Die Befragung fand vor den Landtagswahlen statt. Andere Zeitpunkte und Länder können andere Muster liefern.</li><li><strong>Von Akzeptanz zu Demokratie:</strong> Langfristige Normalisierung und demokratische Folgen wurden nicht experimentell verfolgt. Empirische Popularität entscheidet keine normative Frage.</li></ul></div></div>
+        <div class="quiz panel"><p class="eyebrow">DREI FRAGEN ZUM MITNEHMEN</p><h3>Können Sie das Ergebnis erklären?</h3><div id="knowledge-check"></div></div>
+        <details class="source-details"><summary>Quellen, Abdeckung des Artikels und Reproduzierbarkeit</summary><p><strong>Gross, Martin, Christina-Marie Juen und Christian Stecker (2026).</strong> <em>The Cordon Dilemma: How Voters Evaluate Cooperation with the Far-Right in Parliament.</em> Comparative Political Studies. <a href="https://doi.org/10.1177/00104140261448429" target="_blank" rel="noopener">Artikel ↗</a>. Inhaltliche Grundlage: finale Manuskriptfassung vom 17.04.2026; Fragebogen <em>Survey_full_final</em>; Original-Programmierung <em>afdfirewall.js</em>; lokales Replikationspaket.</p><p>Die interaktiven Studiengrafiken werden mit <code>cregg::cj(estimate = "mm", id = ~ ResponseId)</code> berechnet. Alle sieben Profilmerkmale bleiben im Modell. Keine Individualdaten werden mit der Anwendung ausgeliefert. Die Unterrichtsantworten fließen nicht in die Studiengrafiken ein.</p><div class="table-scroll"><table><thead><tr><th>Im Artikel</th><th>Hier im Lernpfad</th></tr></thead><tbody><tr><td>Theorie &amp; Abbildung 1</td><td>Das Dilemma; historischer Mehrheitsrechner für die beiden Landtage</td></tr><tr><td>Tabellen 1–2</td><td>Originalattribute mit allen Ausprägungen; drei randomisierte Paarvergleiche und Bewertungen</td></tr><tr><td>Abbildung 2</td><td>Sechs Einstellungsfragen und Zustimmungsverteilungen nach Parteiwahlabsicht</td></tr><tr><td>Abbildungen 3–4</td><td>MM für alle sieben Attribute; Gesamtstichprobe und drei Wählergruppen</td></tr><tr><td>Abbildung 5</td><td>Bewertungen −5 bis +5; mittlere CDU-Parteibewertung als Referenz</td></tr><tr><td>Abbildungen 6–7</td><td>Inhaltliche und prinzipielle Gruppenunterschiede; Gesamtdaten und getrennte Regionen</td></tr><tr><td>Diskussion &amp; Appendix</td><td>Grenzen der Interpretation; Fallzahlen und Bereinigung. Detailanalysen für alle Einzelparteien, alle Parteireferenzlinien und weitere Appendix-Grafiken bleiben im Replikationsbericht.</td></tr></tbody></table></div><p>Der Entwurf bildet den Argumentationsgang und alle sieben Hauptabbildungen didaktisch ab. Der Mehrheitsrechner konzentriert sich auf die Landtage; die Bundestagsdarstellung aus Abbildung 1 bleibt im Artikel. Er ersetzt nicht den vollständigen Artikel oder den Appendix.</p><div class="source-actions"><button class="button secondary" id="download-aggregates">Studienaggregate als JSON ↓</button><a class="button secondary" href="../tools/export_study.R" download>R-Exportskript ↓</a></div><p id="provenance" class="small"></p></details>
+        <div class="end-actions"><a class="button primary" href="#teilnehmen">Zurück zu Ihren Entscheidungen ↑</a><button class="text-button" id="reset-answers">Antworten zurücksetzen</button></div><p id="reset-status" role="status" class="small"></p>
+      </div></section>
+    </div>
+  </main>
+  <footer class="container"><strong>MethodLab</strong><span>Politikwissenschaft zum Ausprobieren.</span><span>Entwurf · November 2026</span></footer>
+  <noscript><p class="container">Für Experiment und Grafiken muss JavaScript aktiviert sein. Artikel: https://doi.org/10.1177/00104140261448429.</p></noscript>
+</body>
+</html>

@@ -8,6 +8,7 @@ on:
       - "hub/**"
       - "wahlsystemlabor/**"
       - "umfragelabor/**"
+      - "cordon-dilemma/**"
       - "brand/**"
       - "tools/sync_brand.py"
       - "tools/build_teaching_hub.py"
@@ -56,6 +57,11 @@ jobs:
           node --check umfragelabor/site/stats.js
           node --check umfragelabor/site/app.js
           node umfragelabor/tools/check.mjs
+
+      - name: Check Cordon Dilemma
+        run: |
+          node --check cordon-dilemma/site/app.js
+          node cordon-dilemma/tools/check.mjs
 
       - name: Build MethodLab and static apps
         run: python tools/build_teaching_hub.py --public

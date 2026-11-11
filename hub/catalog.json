@@ -6,6 +6,18 @@
     "use": "Einzeln & Projektion", "href": "./wahlsystemlabor/", "action": "Entwurf ausprobieren", "featured": true
   },
   {
+    "id": "cordon-dilemma",
+    "title": "Was denken die Wähler über die Brandmauer und Alternativen?",
+    "kind": "app",
+    "format": "Interaktives Scrollytelling",
+    "status": "Entwurf",
+    "topic": "Brandmauer · Parteienwettbewerb · Conjoint",
+    "description": "Beantworten Sie die Fragen aus „The Cordon Dilemma“ von Gross, Juen und Stecker. Verfolgen Sie anschließend, wie aus Kandidierendenvergleichen Daten und Befunde zur Brandmauer werden.",
+    "use": "Selbststudium & Lehre · ca. 25–35 Minuten",
+    "href": "./cordon-dilemma/",
+    "action": "Scrollytelling öffnen"
+  },
+  {
     "id": "parteienlabor", "title": "Wo stehen die Parteien?",
     "kind": "app", "format": "Interaktive App", "status": "Online", "topic": "Parteien · Positionen",
     "description": "Parteipositionen einschätzen und die gemeinsame Verteilung mit wissenschaftlichen Expertenurteilen vergleichen.",

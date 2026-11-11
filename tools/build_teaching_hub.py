@@ -13,6 +13,7 @@ import re
 import shutil
 import argparse
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -48,6 +49,7 @@ def main():
         raise ValueError('Doppelte Katalog-ID.')
     required_apps = {'spatial-models': ROOT / 'spatial-models-demo/site',
                      'wahlsystemlabor': ROOT / 'wahlsystemlabor/site',
+                     'cordon-dilemma': ROOT / 'cordon-dilemma/site',
                      'umfragelabor': ROOT / 'umfragelabor/site'}
     for name, source in required_apps.items():
         if not (source / 'index.html').is_file():
@@ -62,6 +64,17 @@ def main():
     (output / 'index.html').write_text(source, encoding='utf-8')
     for name, app in required_apps.items():
         shutil.copytree(app, output / name, dirs_exist_ok=True)
+    # Die gepackte App liegt eine Ebene höher als die lokale site/-Quelle.
+    cordon = output / 'cordon-dilemma'
+    cordon_index = cordon / 'index.html'
+    cordon_html = cordon_index.read_text(encoding='utf-8')
+    download_link = 'href="../tools/export_study.R"'
+    if download_link not in cordon_html:
+        raise ValueError('Erwarteter R-Download im Cordon-Scrollytelling fehlt.')
+    cordon_html = cordon_html.replace(download_link, 'href="./export_study.R"')
+    cordon_html = cordon_html.replace('class="wordmark" href="#main"', 'class="wordmark" href="../"')
+    cordon_index.write_text(cordon_html, encoding='utf-8')
+    shutil.copyfile(ROOT / 'cordon-dilemma/tools/export_study.R', cordon / 'export_study.R')
     (output / '.nojekyll').write_text('', encoding='utf-8')
     if not args.public:
         lab = ROOT / 'wahlsystemlabor'
@@ -70,6 +83,9 @@ def main():
         offline = source.replace('href="./wahlsystemlabor/"', 'href="./wahlsystemlabor/entwurf.html"')
         offline = offline.replace('href="./umfragelabor/"', 'href="./umfragelabor/index.html"')
         offline = offline.replace('href="./spatial-models/"', 'href="./spatial-models/index.html"')
+        subprocess.run([sys.executable, 'tools/build_standalone.py'], cwd=ROOT / 'cordon-dilemma', check=True)
+        shutil.copyfile(ROOT / 'cordon-dilemma/brandmauer-entwurf.html', cordon / 'entwurf.html')
+        offline = offline.replace('href="./cordon-dilemma/"', 'href="./cordon-dilemma/entwurf.html"')
         offline = offline.replace('class="wordmark" href="./"', 'class="wordmark" href="./methodlab-entwurf.html"')
         (output / 'methodlab-entwurf.html').write_text(offline, encoding='utf-8')
     print(f'{len(catalog)} Angebote: {output}')
