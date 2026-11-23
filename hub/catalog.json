@@ -18,6 +18,12 @@
     "action": "Scrollytelling öffnen"
   },
   {
+    "id": "bundestag-scrollytelling", "title": "Wer bekommt überhaupt die Chance, in den Bundestag einzuziehen?",
+    "kind": "app", "format": "Interaktives Scrollytelling", "status": "Online", "topic": "Bundestag · Nominierung · Soziale Repräsentation",
+    "description": "Vergleichen Sie Wahlkreis und Listenplatz und untersuchen Sie, wie Parteien die Chancen auf ein Mandat verteilen. Mit Befunden von Elsässer und Wenker.",
+    "use": "Selbststudium & Projektion · ca. 10 Minuten", "href": "./bundestag-scrollytelling/", "action": "Scrollytelling öffnen"
+  },
+  {
     "id": "parteienlabor", "title": "Wo stehen die Parteien?",
     "kind": "app", "format": "Interaktive App", "status": "Online", "topic": "Parteien · Positionen",
     "description": "Parteipositionen einschätzen und die gemeinsame Verteilung mit wissenschaftlichen Expertenurteilen vergleichen.",

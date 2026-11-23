@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Wie Parteien die Chancen auf ein Mandat verteilen. Eine interaktive Lektüre der Bundestagsstudie von Lea Elsässer und Jonas Wenker.">
+  <title>Wer bekommt die Chance auf den Bundestag? · MethodLab</title>
+  <link rel="stylesheet" href="./brand/brand.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./study-data.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#einstieg">Zum Inhalt</a>
+  <!-- politicsRLab:identity:start -->
+<header class="prl-institution" aria-label="Hochschule und Arbeitsbereich">
+  <div class="prl-institution__inner">
+    <a class="prl-institution__logo" href="https://www.tu-darmstadt.de/" aria-label="Technische Universität Darmstadt">
+      <img src="./brand/tu-darmstadt.svg" width="250" height="157" alt="Technische Universität Darmstadt" />
+    </a>
+    <div class="prl-institution__text">
+      <a class="prl-institution__department" href="https://www.politikwissenschaft.tu-darmstadt.de/institut/arbeitsbereiche_und_nachwuchsgruppen/de_vergleich/index.de.jsp">Politisches System Deutschlands und Vergleich politischer Systeme</a>
+      <p class="prl-institution__person">Prof. Dr. Christian Stecker</p>
+    </div>
+  </div>
+</header>
+<!-- politicsRLab:identity:end -->
+  <nav class="nav" aria-label="Lernpfad">
+    <div class="wrap nav-inner">
+      <a class="wordmark" href="#einstieg">Method<span>Lab</span></a>
+      <div class="links"><a href="#vermutung">Vermutung</a><a href="#wege">Nominierung</a><a href="#wahlerfolg">Befunde</a><a href="#transfer">Transfer</a></div>
+      <button id="present" type="button" aria-pressed="false" title="Abschnitte mit den Pfeiltasten wechseln, mit Escape beenden" class="nav-button"><span class="screen-icon" aria-hidden="true"></span>Beamer</button>
+      <div id="present-bar" role="group" aria-label="Beamersteuerung" hidden><button type="button" id="back">Zurück</button><span id="position"></span><button type="button" id="forward">Weiter</button><button type="button" id="leave">Beenden</button></div>
+    </div>
+  </nav>
+  <main>
+    <header class="wrap hero" id="einstieg" data-stop>
+      <div>
+        <p class="kicker"><span class="rule"></span> Study of the Day · Bundestag</p>
+        <h1>Wer bekommt überhaupt die Chance, <em>in den Bundestag einzuziehen?</em></h1>
+        <p class="lead">Im 1969 gewählten Bundestag hatte gut ein Drittel der Abgeordneten weder studiert noch einen kurzen tertiären Abschluss. 2021 war es nur noch etwa jeder Elfte. Wie kommt diese Auswahl zustande?</p>
+        <div class="start-row"><a class="primary" href="#vermutung">Vermutung abgeben</a><span>ca. 10 Minuten</span></div>
+      </div>
+      <figure class="history-panel">
+        <p class="chart-type">Abgeordnete · 1969–2021</p>
+        <h2>Wer saß im Parlament?</h2>
+        <p class="chart-unit">Anteil der MdB ohne tertiäre Bildung</p>
+        <div id="history-plot"></div>
+        <figcaption>Abgeordnete mit bekannter Bildung, nach Wahljahr. Eigene Berechnung aus den Biografiedaten zu Elsässer &amp; Wenker (2026), Abb. 1.</figcaption>
+      </figure>
+    </header>
+    <noscript><p class="wrap">Mit JavaScript können Sie die Diagramme ansehen, beide Zugangswege ausprobieren und Ihre Vermutung am Ende wieder aufrufen. Die Texte und Quellen sind unten zugänglich.</p></noscript>
+    <section class="prediction-band" id="vermutung" data-stop>
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Ihre Vermutung</p>
+          <h2>Wo beginnt die Auswahl?</h2>
+          <p>Denken Sie an jemanden, der im Bundestag mitentscheiden möchte. An welcher Stelle vermuten Sie die größte Hürde für Menschen ohne tertiäre Bildung?</p>
+        </div>
+        <form id="prediction">
+          <fieldset><legend>Wählen Sie eine Stelle und begründen Sie Ihre Vermutung.</legend>
+            <label class="choice"><input type="radio" name="stage" value="entschluss" required> Beim Entschluss zur Kandidatur</label>
+            <label class="choice"><input type="radio" name="stage" value="nominierung"> Bei der Nominierung durch die Partei</label>
+            <label class="choice"><input type="radio" name="stage" value="wahl"> Bei der Wahl durch die Bevölkerung</label>
+            <label class="reason" for="reason">Was spricht dafür? <span>Stichwort oder mündliche Begründung</span></label>
+            <textarea id="reason" rows="2" maxlength="400" autocomplete="off"></textarea>
+            <button class="primary" type="submit">Vermutung festhalten</button>
+          </fieldset>
+          <p id="prediction-status" role="status" class="respond"></p>
+          <a class="text-link" href="#wege">Weiter zu den Zugangswegen</a>
+        </form>
+      </div>
+    </section>
+    <section class="wrap routes split" id="wege" data-stop>
+      <div>
+        <p class="kicker"><span class="rule"></span> Die Nominierung</p>
+        <h2>Zwei Wege zu einem Sitz</h2>
+        <p>2013, 2017 und 2021 konnte die Partei jemanden im <strong>Wahlkreis</strong> aufstellen. Wer dort die meisten Erststimmen bekam, gewann das Direktmandat. Auf der <strong>Landesliste</strong> zählte dagegen, wie weit die Liste der Partei bei der Sitzverteilung zum Zuge kam.</p>
+        <p>Viele traten auf beiden Wegen an. Deshalb fragen Elsässer und Wenker für jede der drei vorangegangenen Wahlen, ob die Kombination aus Wahlkreis und Listenplatz für einen Sitz gereicht hätte.</p>
+        <p class="prompt">Prüfen Sie erst jeden Weg für sich, dann die Doppelkandidatur. Wann gilt die Position als sicher?</p>
+      </div>
+      <div class="lab">
+        <p class="chart-type">Rechenbeispiel · frei gewählt</p>
+        <h3>Hätte es für einen Sitz gereicht?</h3>
+        <fieldset class="route-options"><legend>Berücksichtigte Kandidatur</legend>
+          <label><input type="radio" name="route" value="district" checked><span>Wahlkreis</span></label>
+          <label><input type="radio" name="route" value="list"><span>Liste</span></label>
+          <label><input type="radio" name="route" value="both"><span>Beide Wege</span></label>
+        </fieldset>
+        <table class="route-table"><caption>Rückblick auf drei frühere Wahlen</caption><thead><tr><th scope="col">Frühere Wahl</th><th scope="col">Wahlkreis</th><th scope="col">Liste</th><th scope="col">Mandat</th></tr></thead><tbody id="route-body"></tbody></table>
+        <p id="route-result" class="result-band" aria-live="polite"></p>
+        <p class="small">0 von 3 gilt als unsicher, 1 oder 2 als umkämpft und 3 als sicher. Bei einer Einzelkandidatur zählt nur der verfügbare Weg.</p>
+      </div>
+    </section>
+    <div class="findings">
+      <div class="wrap story-grid">
+        <div class="story-steps">
+          <section class="step" data-figure="elected" data-stop id="wahlerfolg">
+            <p class="kicker"><span class="rule"></span> Wahlerfolg</p>
+            <h2>Wurde aus der Chance ein Mandat?</h2>
+            <p>Von 100 sicher Nominierten zogen im Mittel 93 tatsächlich in den Bundestag ein. Unter 100 unsicher Nominierten waren es sechs. Auch eine sichere Nominierung konnte also mit einer Niederlage enden.</p>
+            <p>Stellen Sie sich vor, die Landesliste einer Partei kommt bei einer Wahl bis Platz vier zum Zug. Zwei Bewerberinnen treten nur auf der Liste an. Die auf Platz drei zieht ein, die auf Platz fünf geht leer aus. Hätte die Partei bei der Nominierung beide Plätze getauscht, säße bei derselben Stimmenverteilung die andere Frau im Parlament.</p>
+            <p>So kann eine Partei schon vor der Wahl beeinflussen, wer sie später vertritt. Die 93 und 6 Prozent beschreiben, wie oft der Einzug in den untersuchten Wahlen tatsächlich gelang. Wie viel ein Platzwechsel für eine bestimmte Person bewirkt hätte, lässt sich daraus nicht berechnen.</p>
+            <div class="inline-chart" data-chart="elected"></div>
+            <a class="text-link" href="#gruppen">Wer bekam welche Plätze?</a>
+          </section>
+          <section class="step" data-figure="observed" data-stop id="gruppen">
+            <p class="kicker"><span class="rule"></span> Beobachteter Unterschied</p>
+            <h2>Wer steht auf den sicheren Plätzen?</h2>
+            <p>Unter den unsicher Nominierten waren Menschen ohne tertiäre Bildung häufiger vertreten als unter den sicher Nominierten. Bei Kandidierenden mit einer frühen politiknahen Laufbahn verlief das Muster umgekehrt. Dazu zählt die Studie etwa Hochschulabsolventinnen und -absolventen, die binnen fünf Jahren nach dem Studium kandidierten.</p>
+            <p>Die Studie verwendet <strong>eigene Bildung</strong> als Annäherung an soziale Klasse. Wer gerade studiert oder einen kurzen tertiären Abschluss wie den Meister hat, gehört in der Befragung zur Gruppe mit tertiärer Bildung. Der Beruf der Eltern geht in dieses Maß nicht ein.</p>
+            <p><strong>Wie könnte das Muster entstehen?</strong> Wer für eine Partei arbeitet, lernt früh Mitglieder kennen, die später eine Bewerbung unterstützen können. Wer im Schichtdienst arbeitet, kann bei manchen Treffen fehlen. Wenn Delegierte für aussichtsreiche Plätze vor allem Personen vorschlagen, die sie aus der Zusammenarbeit kennen, können sich solche Unterschiede bis in den Bundestag fortsetzen.</p>
+            <div class="inline-chart" data-chart="observed"></div>
+            <a class="text-link" href="#modell">Was ändert der Modellvergleich?</a>
+          </section>
+          <section class="step" data-figure="model" data-stop id="modell">
+            <p class="kicker"><span class="rule"></span> Modellvergleich</p>
+            <h2>Und bei vergleichbaren Kandidierenden?</h2>
+            <p>Unter den sicher Nominierten hatten 70 Prozent bereits ein Mandat, unter den unsicher Nominierten nur 3 Prozent. Wenn sich Bildungsgruppen in ihrer Parlamentserfahrung unterscheiden, könnte das einen Teil des beobachteten Musters erklären.</p>
+            <p>Wir halten Alter, Amtsinhaberschaft und weitere Merkmale gleich. Nehmen Sie an, das Vergleichsprofil hat eine Chance von 50 Prozent auf einen sicheren Platz. Aus dem Modell ergeben sich dann rund 40 Prozent ohne tertiäre Bildung und 62 Prozent bei politiknaher Laufbahn.</p>
+            <p class="prompt">Woran ließe sich erkennen, ob die Kontakte den Ausschlag gaben? Dafür müsste man auch wissen, wer sich um denselben Platz beworben hat, wer Unterstützung erhielt und wie die Delegierten entschieden haben. Die Befragung erfasst die bereits Nominierten.</p>
+            <div class="inline-chart" data-chart="model"></div>
+            <details id="mechanismus"><summary>Erklärt die Zeit für Parteiarbeit den Unterschied?</summary>
+              <p>Die Befragten gaben an, wie viele Stunden pro Woche sie für Parteiarbeit aufwendeten. Auch wenn Elsässer und Wenker diese Zeit im Modell berücksichtigen, bleiben die Unterschiede nach Bildung und politiknaher Laufbahn erkennbar. Zwei Personen können gleich viele Stunden investieren und dabei ganz unterschiedliche Kontakte knüpfen.</p>
+              <p>Auch die Einschätzung der Delegierten könnte eine Rolle spielen. Vielleicht trauen sie jemandem mit einem vertrauten Berufsweg eher zu, Stimmen zu gewinnen. Welche dieser Erklärungen im Einzelfall zutrifft, bleibt offen. <a href="https://doi.org/10.1017/S1475676525100017">Elsässer &amp; Wenker, S. 25–27 und 37–38</a></p></details>
+            <a class="text-link" href="#transfer">Zurück zur Vermutung</a>
+          </section>
+        </div>
+        <aside class="sticky-figure" aria-label="Grafik zum aktuellen Abschnitt">
+          <div id="current-chart"></div>
+          <nav class="chart-nav" aria-label="Befund auswählen"><a href="#wahlerfolg">Wahlerfolg</a><a href="#gruppen">Gruppen</a><a href="#modell">Modell</a></nav>
+        </aside>
+      </div>
+    </div>
+    <section class="wrap transfer split" id="transfer" data-stop>
+      <div>
+        <p class="kicker"><span class="rule"></span> Zurück zur Leitfrage</p>
+        <h2>Wer sitzt im Parlament? Wessen Interessen zählen?</h2>
+        <p id="recall" class="recall" hidden></p>
+        <p>Ein Teil der sozialen Auswahl ist schon bei der Nominierung sichtbar. Ob die größte Hürde dort, beim Entschluss zur Kandidatur oder am Wahltag liegt, lässt sich mit dieser Studie nicht entscheiden.</p>
+      </div>
+      <div class="question">
+        <h3>Angenommen, der nächste Bundestag spiegelt die Bildungsstruktur der Bevölkerung genau wider.</h3>
+        <p>Woran würden Sie erkennen, ob er auch die Interessen der verschiedenen Bildungsgruppen gleichermaßen vertritt? Formulieren Sie ein Beispiel.</p>
+        <details id="transfer-answer"><summary>Mit einer Antwort vergleichen</summary>
+          <p><strong>Deskriptive Repräsentation</strong> lässt sich an den Biografien der Abgeordneten untersuchen. Für <strong>substanzielle Repräsentation</strong> müsste man zusätzlich beobachten, welche Anliegen sie aufgreifen und welche Entscheidungen sie treffen.</p>
+          <p>Wer selbst eine Ausbildung gemacht hat, könnte etwa die Fahrtkosten zur Berufsschule im Ausschuss zur Sprache bringen. Ob daraus ein Fahrtkostenzuschuss wird, hängt auch davon ab, ob sich eine Mehrheit dafür findet. Um zu prüfen, wessen Interessen sich durchsetzen, könnte man die Reformwünsche verschiedener Gruppen mit dem späteren Beschluss vergleichen.</p>
+          <p>Der Seminartext von Elsässer, Hense und Schäfer (2017) stellt diese Anschlussfrage für Einkommensgruppen. Er verknüpft Reformpräferenzen mit späteren politischen Entscheidungen. <a href="https://doi.org/10.1007/s41358-017-0097-9">Zum Seminartext</a></p>
+        </details>
+      </div>
+    </section>
+    <section class="sources" id="quellen" data-stop>
+      <div class="wrap">
+        <p class="kicker">Zur Vertiefung</p><h2>Quellen und Methode</h2>
+        <details><summary>Wer wurde untersucht?</summary><p>Die historische Reihe beruht auf Biografien von Abgeordneten seit 1969. Die zweite Analyse verbindet die GLES-Kandidierendenstudien von 2013, 2017 und 2021 mit früheren Wahlergebnissen. Je Welle nahmen 29 bis 41 Prozent der Angeschriebenen teil. Die Datensätze bilden unterschiedliche Personenkreise ab.</p>
+          <p>Die AfD fehlt in der Nominierungsanalyse, weil ihr die nötige Wahlhistorie fehlte. Reine Listenkandidaturen entfallen, wenn der Listenrang mehr als das 1,5-Fache des weitesten erfolgreichen Rangs der Partei im Land während der drei Vorwahlen beträgt. Bei einem bisherigen Maximum von Rang 20 betrifft das Plätze ab Rang 31.</p></details>
+        <details><summary>Was gilt als politiknahe Laufbahn?</summary><p>Bei Kandidierenden setzt die Studie einen Hochschulabschluss voraus. Hinzu kommt eine Kandidatur bis fünf Jahre nach dem geschätzten Ausbildungsende oder eine Kandidatur bis zehn Jahre danach mit vorheriger Arbeit für die Partei oder einem bezahlten politischen Mandat. Bei bereits Gewählten zählt das Alter beim Ersteinzug. Eine gewöhnliche Parteimitgliedschaft reicht für diese Einordnung nicht aus. Amtsinhaberschaft geht getrennt ins Modell ein.</p></details>
+        <details id="model-method"><summary>Wie entsteht der Modellvergleich?</summary><div id="model-method-body"></div></details>
+        <p class="citation"><strong>Originalstudie</strong><br>Lea Elsässer &amp; Jonas Wenker (2026). <i>Chosen (not) to win? Party nomination strategies and the unequal class representation in parliament.</i> European Journal of Political Research 65, 22–42.</p>
+        <div class="source-links"><a href="https://doi.org/10.1017/S1475676525100017">Aufsatz</a><a href="https://static.cambridge.org/content/id/urn%3Acambridge.org%3Aid%3Aarticle%3AS1475676525100017/resource/name/S1475676525100017sup001.pdf">Online-Anhang</a><a href="https://osf.io/c6kwv/">Replikationsmaterial</a></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

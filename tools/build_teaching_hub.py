@@ -50,6 +50,7 @@ def main():
     required_apps = {'spatial-models': ROOT / 'spatial-models-demo/site',
                      'wahlsystemlabor': ROOT / 'wahlsystemlabor/site',
                      'cordon-dilemma': ROOT / 'cordon-dilemma/site',
+                     'bundestag-scrollytelling': ROOT / 'bundestag-scrollytelling/site',
                      'umfragelabor': ROOT / 'umfragelabor/site'}
     for name, source in required_apps.items():
         if not (source / 'index.html').is_file():
@@ -82,6 +83,7 @@ def main():
         shutil.copyfile(lab / 'outputs/wahlsystemlabor-entwurf.html', output / 'wahlsystemlabor/entwurf.html')
         offline = source.replace('href="./wahlsystemlabor/"', 'href="./wahlsystemlabor/entwurf.html"')
         offline = offline.replace('href="./umfragelabor/"', 'href="./umfragelabor/index.html"')
+        offline = offline.replace('href="./bundestag-scrollytelling/"', 'href="./bundestag-scrollytelling/index.html"')
         offline = offline.replace('href="./spatial-models/"', 'href="./spatial-models/index.html"')
         subprocess.run([sys.executable, 'tools/build_standalone.py'], cwd=ROOT / 'cordon-dilemma', check=True)
         shutil.copyfile(ROOT / 'cordon-dilemma/brandmauer-entwurf.html', cordon / 'entwurf.html')

@@ -17,7 +17,7 @@ Aus dem Projektstamm ausführen. Danach `outputs/teaching-hub/methodlab-entwurf.
 python tools/build_teaching_hub.py --public
 ```
 
-Ausgabe: `outputs/teaching-hub-public/`. Enthalten sind die Startseite mit neun Angeboten, der statische Wahlsystemlabor-Entwurf, die räumlichen Modelle, das Umfragelabor und das Cordon-Scrollytelling. Das separat betriebene Parteienlabor und die Colab-Notebooks sind verlinkt. Private Dozentenfunktionen und Antwortdaten werden nicht kopiert. Die Notebook-Inhalte sind verlinkter Bestand und wurden für diese Veröffentlichung nicht erneut inhaltlich geprüft.
+Ausgabe: `outputs/teaching-hub-public/`. Die Startseite führt zehn Angebote. Das Paket enthält Wahlsystemlabor, räumliche Modelle, Umfragelabor, Cordon-Scrollytelling und das [Bundestag-Scrollytelling](https://cstecker.github.io/politicsRLab/bundestag-scrollytelling/). Das separat betriebene Parteienlabor und die Colab-Notebooks sind verlinkt. Private Dozentenfunktionen und Antwortdaten werden nicht kopiert. Die Notebook-Inhalte sind verlinkter Bestand und wurden für diese Veröffentlichung nicht erneut inhaltlich geprüft.
 
 Die Veröffentlichung läuft über den bestehenden Workflow `.github/workflows/deploy-spatial-models-demo.yml`, jetzt mit dem Namen „Deploy MethodLab“. Es gibt ein gemeinsames Pages-Artefakt statt konkurrierender App-Deployments. Änderungen an Katalog, Gestaltung, statischen Apps oder Build-Hilfen auf `main` lösen den Workflow aus; manuelles Auslösen ist ebenfalls möglich.
 

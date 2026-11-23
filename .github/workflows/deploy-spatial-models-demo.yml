@@ -9,6 +9,7 @@ on:
       - "wahlsystemlabor/**"
       - "umfragelabor/**"
       - "cordon-dilemma/**"
+      - "bundestag-scrollytelling/**"
       - "brand/**"
       - "tools/sync_brand.py"
       - "tools/build_teaching_hub.py"
@@ -62,6 +63,11 @@ jobs:
         run: |
           node --check cordon-dilemma/site/app.js
           node cordon-dilemma/tools/check.mjs
+
+      - name: Check Bundestag scrollytelling
+        run: |
+          node --check bundestag-scrollytelling/site/study-data.js
+          node --check bundestag-scrollytelling/site/app.js
 
       - name: Build MethodLab and static apps
         run: python tools/build_teaching_hub.py --public
